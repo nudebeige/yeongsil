@@ -1,0 +1,22 @@
+<svg viewBox="0 0 560 250" role="img" aria-label="요즘 기준 전선 색과 오래된 집에서 흔한 전선 색 비교" xmlns="http://www.w3.org/2000/svg">
+<rect width="560" height="250" rx="16" fill="#eef1f0"/>
+<g font-family="Noto Sans KR, Malgun Gothic, sans-serif">
+<text x="28" y="38" font-size="15" font-weight="900" fill="#1f5a4c">요즘 집 (2021년부터)</text>
+<text x="300" y="38" font-size="15" font-weight="900" fill="#8a5a2b">오래된 집에서 흔한 색</text>
+<line x1="280" y1="20" x2="280" y2="232" stroke="#cfd5d2" stroke-width="2"/>
+<text x="28" y="80" font-size="12.5" font-weight="700" fill="#5d6a66">가는 선</text>
+<rect x="90" y="68" width="160" height="16" rx="8" fill="#7b4a22"/><text x="170" y="81" text-anchor="middle" font-size="12" font-weight="900" fill="#fff">갈색</text>
+<text x="28" y="135" font-size="12.5" font-weight="700" fill="#5d6a66">돌아오는 선</text>
+<rect x="110" y="123" width="140" height="16" rx="8" fill="#1f5fbf"/><text x="180" y="136" text-anchor="middle" font-size="12" font-weight="900" fill="#fff">파랑</text>
+<text x="28" y="190" font-size="12.5" font-weight="700" fill="#5d6a66">안전선</text>
+<rect x="90" y="178" width="160" height="16" rx="8" fill="#e7c62b"/>
+<g fill="#2c9a4b"><rect x="98" y="178" width="12" height="16"/><rect x="122" y="178" width="12" height="16"/><rect x="146" y="178" width="12" height="16"/><rect x="170" y="178" width="12" height="16"/><rect x="194" y="178" width="12" height="16"/><rect x="218" y="178" width="12" height="16"/></g>
+<rect x="300" y="68" width="110" height="16" rx="8" fill="#2a2a2a"/><text x="355" y="81" text-anchor="middle" font-size="12" font-weight="900" fill="#fff">검정</text>
+<rect x="420" y="68" width="110" height="16" rx="8" fill="#c73a2e"/><text x="475" y="81" text-anchor="middle" font-size="12" font-weight="900" fill="#fff">빨강</text>
+<rect x="300" y="123" width="110" height="16" rx="8" fill="#ffffff" stroke="#b7bfbb"/><text x="355" y="136" text-anchor="middle" font-size="12" font-weight="900" fill="#1d2623">흰색</text>
+<rect x="420" y="123" width="110" height="16" rx="8" fill="#9aa19e"/><text x="475" y="136" text-anchor="middle" font-size="12" font-weight="900" fill="#fff">회색</text>
+<rect x="300" y="178" width="230" height="16" rx="8" fill="#2c9a4b"/><text x="415" y="191" text-anchor="middle" font-size="12" font-weight="900" fill="#fff">초록 (없는 집도 있어요)</text>
+<text x="28" y="226" font-size="12" font-weight="700" fill="#5d6a66">같은 줄끼리 같은 역할이에요.</text>
+<text x="300" y="226" font-size="12" font-weight="700" fill="#5d6a66">집마다 달라서 색만 믿으면 안 돼요.</text>
+</g>
+</svg>

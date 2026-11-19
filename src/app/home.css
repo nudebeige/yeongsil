@@ -1,0 +1,99 @@
+/* 첫 화면 (온달식): 얇은 메뉴, 큰 질문, 검색, 동그란 증상 바로가기, 해시태그, 큰 부 번호 목록 */
+.hp{
+  --bg:#ffffff; --ink:#111111; --muted:#6b6b6b; --line:#e6e6e6; --soft:#f5f5f3;
+  --red:#e0362c; --red-soft:#fdecea; --off:#b9b9b9;
+  --font:var(--font-noto),"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.6;min-height:100vh;
+  @media (prefers-color-scheme:dark){
+    --bg:#121212; --ink:#f2f2f2; --muted:#a0a0a0; --line:#2c2c2c; --soft:#1c1c1c;
+    --red:#ff5a4f; --red-soft:#3a1d1b; --off:#555555; color-scheme:dark;
+  }
+  &,& *{box-sizing:border-box}
+  a{color:inherit;text-decoration:none}
+  a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+  h1,h2,h3{margin:0;text-wrap:balance}
+  .gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .wrap{max-width:1080px;margin:0 auto}
+
+  .hero{padding-block:44px 36px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+  .hero .eb{font-size:13px;color:var(--muted);font-weight:700}
+  .hero h1{font-size:clamp(36px,9vw,72px);font-weight:900;letter-spacing:-.045em;line-height:1.05;margin-top:8px}
+  .hero h1 em{font-style:normal;color:var(--red)}
+  .hero p{margin:12px 0 0;color:var(--muted);max-width:40em}
+  .sticker{position:absolute;right:max(16px,6%);top:30px;transform:rotate(8deg);background:var(--ink);color:var(--bg);font-weight:900;font-size:13px;padding:8px 12px;border-radius:999px;white-space:nowrap}
+  .search{display:flex;align-items:center;gap:10px;border-bottom:2px solid var(--ink);margin-top:26px;max-width:720px}
+  .search svg{flex:none}
+  .search input{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);font:inherit;font-size:16px;padding:12px 0}
+  .search input::placeholder{color:var(--off)}
+  .search button{border:0;background:none;font:inherit;font-weight:900;color:var(--ink);cursor:pointer;padding:8px 0}
+  .results{max-width:720px;margin-top:8px;display:flex;flex-direction:column}
+  .results a,.results p{padding:10px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;margin:0}
+  .results p{color:var(--muted)}
+  .results .pg{color:var(--muted);font-size:13px;flex:none}
+
+  .urgent{background:var(--red);color:#fff}
+  .urgent .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;padding-block:14px}
+  .urgent b{font-size:15px;font-weight:900}
+  .urgent a{font-size:14px;font-weight:700;border-bottom:1.5px solid rgb(255 255 255 / .6)}
+  .urgent span{font-size:13px;opacity:.9}
+
+  section.blk{padding-block:40px 8px}
+  .blk h2{font-size:22px;font-weight:900;letter-spacing:-.02em}
+  .blk .sub{color:var(--muted);font-size:14px;margin:4px 0 0}
+
+  .circles{display:flex;gap:18px;overflow-x:auto;padding:20px 2px 6px;scrollbar-width:thin}
+  .circ{flex:0 0 auto;width:92px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+  .circ .o{width:78px;height:78px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:14px;line-height:1.2;border:1.5px solid var(--ink);background:var(--bg);color:var(--ink);padding:6px}
+  .circ.dark .o{background:var(--ink);color:var(--bg)}
+  .circ.red .o{background:var(--red);border-color:var(--red);color:#fff}
+  .circ .t{font-size:12.5px;color:var(--muted);line-height:1.35}
+  @media (prefers-reduced-motion:no-preference){.circ .o{transition:transform .15s}}
+  .circ:hover .o{transform:translateY(-2px)}
+
+  .tags{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:16px;font-size:15px;font-weight:700}
+  .tags a{color:var(--muted)}
+  .tags a:first-child{color:var(--ink)}
+  .tags a:hover{color:var(--red)}
+
+  .part{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:8px 32px;padding-block:28px;border-top:1px solid var(--line)}
+  .part:first-of-type{border-top:2px solid var(--ink)}
+  .pn{font-size:clamp(72px,14vw,132px);font-weight:900;line-height:.85;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+  .part:nth-child(even) .pn{color:var(--ink);-webkit-text-stroke:0}
+  .ph h3{font-size:24px;font-weight:900;letter-spacing:-.03em}
+  .ph p{margin:4px 0 14px;color:var(--muted);font-size:14px}
+  .list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 24px}
+  .list a{display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line);min-width:0;font-size:14.5px;font-weight:700}
+  .list .no{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;flex:none;font-weight:500}
+  .list a::after{content:"→";margin-left:auto;color:var(--red);flex:none}
+  .list a:hover{color:var(--red)}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding-block:24px 40px;color:var(--muted);font-size:13px}
+  footer b{color:var(--ink)}
+
+  @media (max-width:860px){.list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:620px){
+    .part{grid-template-columns:minmax(0,1fr)}
+    .pn{font-size:80px}
+    .list{grid-template-columns:minmax(0,1fr)}
+    .sticker{top:14px;font-size:12px}
+    .hero{padding-top:56px}
+  }
+}
+
+/* 위쪽 얇은 메뉴 — 첫 화면과 쪽 화면이 함께 씀 */
+.topbar{
+  --tb-bg:#ffffff; --tb-ink:#111111; --tb-muted:#6b6b6b; --tb-line:#e6e6e6; --tb-red:#e0362c;
+  @media (prefers-color-scheme:dark){--tb-bg:#121212; --tb-ink:#f2f2f2; --tb-muted:#a0a0a0; --tb-line:#2c2c2c; --tb-red:#ff5a4f}
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--tb-bg);color:var(--tb-ink);border-bottom:1px solid var(--tb-line);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  font-family:var(--font-noto),"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+  a{color:inherit;text-decoration:none}
+  .bar{display:flex;align-items:center;gap:22px;height:58px;max-width:1080px;margin:0 auto}
+  .logo{display:flex;flex-direction:column;line-height:1.05;flex:none}
+  .logo small{font-size:10.5px;color:var(--tb-muted);font-weight:500}
+  .logo b{font-size:19px;font-weight:900;letter-spacing:-.03em}
+  nav{display:flex;gap:18px;overflow-x:auto;scrollbar-width:none;font-size:14px;font-weight:700;min-width:0}
+  nav::-webkit-scrollbar{display:none}
+  nav a{white-space:nowrap;padding-block:4px}
+  nav a.tb-hot{color:var(--tb-red)}
+}

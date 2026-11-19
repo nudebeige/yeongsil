@@ -1,0 +1,49 @@
+<svg viewBox="0 0 560 270" role="img" aria-label="사람이 감전됐을 때 세 단계: 차단기를 내리고, 전기를 못 끊으면 마른 나무 막대로 떼어 내고, 119에 신고한다. 맨손으로 만지면 안 된다" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="e59-wood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c8935a"/><stop offset="1" stop-color="#a8733e"/></linearGradient>
+</defs>
+<rect width="560" height="270" rx="16" fill="#eef1f0"/>
+<g font-family="Noto Sans KR, Malgun Gothic, sans-serif">
+<!-- 1 -->
+<g transform="translate(20 20)">
+<rect width="160" height="160" rx="12" fill="#fff" stroke="#d6dbd8"/>
+<rect x="40" y="22" width="80" height="116" rx="8" fill="#f4f5f4" stroke="#b7bfbb" stroke-width="2"/>
+<rect x="64" y="44" width="32" height="72" rx="5" fill="#c9cfcc"/>
+<rect x="64" y="84" width="32" height="32" rx="5" fill="#1d2623"/>
+<path d="M130 50 V100" stroke="#e0362c" stroke-width="5" stroke-linecap="round"/>
+<path d="M120 90 L130 104 L140 90" fill="none" stroke="#e0362c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<!-- 2 -->
+<g transform="translate(200 20)">
+<rect width="160" height="160" rx="12" fill="#fff" stroke="#d6dbd8"/>
+<path d="M14 120 C40 120 60 112 80 112" stroke="#2b2f2e" stroke-width="7" fill="none" stroke-linecap="round"/>
+<rect x="78" y="100" width="34" height="24" rx="5" fill="#9aa19e"/>
+<rect x="30" y="30" width="16" height="96" rx="7" fill="url(#e59-wood)" transform="rotate(-38 38 78)"/>
+<path d="M92 92 L108 76 M86 80 L96 68" stroke="#e0362c" stroke-width="3" stroke-linecap="round"/>
+<g transform="translate(128 36) scale(.85)">
+<circle r="20" fill="#fdecea" stroke="#e0362c" stroke-width="2"/>
+<path d="M-8 6 V-6 a3 3 0 0 1 6 0 V-2 V-10 a3 3 0 0 1 6 0 V2 a10 10 0 0 1 -10 10 h-2 a8 8 0 0 1 -6 -3 l-4 -6 a2.5 2.5 0 0 1 4 -3 z" fill="#f2c7a5" stroke="#8d5a3a" stroke-width="1.2"/>
+<path d="M-15 -15 L15 15" stroke="#e0362c" stroke-width="3.5" stroke-linecap="round"/>
+</g>
+</g>
+<!-- 3 -->
+<g transform="translate(380 20)">
+<rect width="160" height="160" rx="12" fill="#fff" stroke="#d6dbd8"/>
+<rect x="50" y="20" width="60" height="120" rx="12" fill="#2b2f2e"/>
+<rect x="56" y="32" width="48" height="92" rx="5" fill="#fdecea"/>
+<text x="80" y="88" text-anchor="middle" font-size="24" font-weight="900" fill="#e0362c">119</text>
+<circle cx="80" cy="131" r="4" fill="#5d6a66"/>
+</g>
+<g text-anchor="middle">
+<text x="100" y="208" font-size="15" font-weight="900" fill="#1d2623">① 전기부터 끊기</text>
+<text x="100" y="228" font-size="12" font-weight="700" fill="#5d6a66">차단기 내리기 (모르면 큰 것)</text>
+<text x="100" y="246" font-size="12" font-weight="700" fill="#5d6a66">또는 플러그 뽑기</text>
+<text x="280" y="208" font-size="15" font-weight="900" fill="#1d2623">② 못 끊으면 마른 막대로</text>
+<text x="280" y="228" font-size="12" font-weight="700" fill="#5d6a66">나무·플라스틱으로 밀어내기</text>
+<text x="280" y="246" font-size="12" font-weight="900" fill="#e0362c">맨손·젖은 것·쇠붙이 ✕</text>
+<text x="460" y="208" font-size="15" font-weight="900" fill="#1d2623">③ 119 신고</text>
+<text x="460" y="228" font-size="12" font-weight="700" fill="#5d6a66">멀쩡해 보여도</text>
+<text x="460" y="246" font-size="12" font-weight="700" fill="#5d6a66">꼭 병원에 가요</text>
+</g>
+</g>
+</svg>

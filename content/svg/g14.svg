@@ -1,0 +1,17 @@
+<svg viewBox="0 0 560 260" role="img" aria-label="클램프미터는 전선 한 가닥만 물어야 숫자가 나오고, 두 가닥이 든 전선을 통째로 물면 0이 나온다" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<g id="clamp"><rect x="-34" y="10" width="68" height="110" rx="14" fill="#2f6fd1"/><rect x="-24" y="24" width="48" height="30" rx="5" fill="#d7e3d0"/><path d="M-34 14 C-50 -40 50 -40 34 14" fill="none" stroke="#2b2f2e" stroke-width="14" stroke-linecap="round"/></g>
+</defs>
+<rect width="560" height="260" rx="16" fill="#eef1f0"/>
+<g font-family="Noto Sans KR, Malgun Gothic, sans-serif">
+<path d="M20 70 H260" stroke="#7b4a22" stroke-width="12" stroke-linecap="round"/>
+<g transform="translate(140 70)"><use href="#clamp"/><text y="46" text-anchor="middle" font-family="Consolas, monospace" font-size="20" font-weight="700" fill="#1d2623">3.5A</text></g>
+<path d="M300 64 H540" stroke="#9aa19e" stroke-width="22" stroke-linecap="round"/>
+<path d="M300 58 H540" stroke="#7b4a22" stroke-width="6"/><path d="M300 70 H540" stroke="#1f5fbf" stroke-width="6"/>
+<g transform="translate(420 70)"><use href="#clamp"/><text y="46" text-anchor="middle" font-family="Consolas, monospace" font-size="20" font-weight="700" fill="#1d2623">0.0A</text></g>
+<text x="140" y="222" text-anchor="middle" font-size="15" font-weight="900" fill="#1f5a4c">○ 한 가닥만 물기</text>
+<text x="140" y="244" text-anchor="middle" font-size="12.5" font-weight="700" fill="#5d6a66">흐르는 양이 숫자로 나와요</text>
+<text x="420" y="222" text-anchor="middle" font-size="15" font-weight="900" fill="#c73a2e">✕ 두 가닥 통째로</text>
+<text x="420" y="244" text-anchor="middle" font-size="12.5" font-weight="700" fill="#5d6a66">가는 전기와 오는 전기가 서로 지워져 0이 돼요</text>
+</g>
+</svg>

@@ -1,0 +1,222 @@
+<title>전기 도와주는 영실</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+/* Layout: 온달식 첫 화면 — 얇은 메뉴, 큰 질문, 검색, 동그란 증상 바로가기, 해시태그, 부별 목록(큰 숫자) */
+:root{
+  --bg:#ffffff; --ink:#111111; --muted:#6b6b6b; --line:#e6e6e6; --soft:#f5f5f3;
+  --red:#e0362c; --red-soft:#fdecea; --off:#b9b9b9;
+  --font:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121212; --ink:#f2f2f2; --muted:#a0a0a0; --line:#2c2c2c; --soft:#1c1c1c;
+  --red:#ff5a4f; --red-soft:#3a1d1b; --off:#555555; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121212; --ink:#f2f2f2; --muted:#a0a0a0; --line:#2c2c2c; --soft:#1c1c1c;
+  --red:#ff5a4f; --red-soft:#3a1d1b; --off:#555555; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.6;margin:0}
+.gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1080px;margin:0 auto}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+h1,h2,h3{margin:0;text-wrap:balance}
+
+/* top menu */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:22px;height:58px}
+.logo{display:flex;flex-direction:column;line-height:1.05;flex:none}
+.logo small{font-size:10.5px;color:var(--muted);font-weight:500}
+.logo b{font-size:19px;font-weight:900;letter-spacing:-.03em}
+nav.menu{display:flex;gap:18px;overflow-x:auto;scrollbar-width:none;font-size:14px;font-weight:700;min-width:0}
+nav.menu::-webkit-scrollbar{display:none}
+nav.menu a{white-space:nowrap;padding-block:4px}
+nav.menu a.hot{color:var(--red)}
+
+/* hero */
+.hero{padding-block:44px 36px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero .eb{font-size:13px;color:var(--muted);font-weight:700}
+.hero h1{font-size:clamp(36px,9vw,72px);font-weight:900;letter-spacing:-.045em;line-height:1.05;margin-top:8px}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero p{margin:12px 0 0;color:var(--muted);max-width:40em}
+.sticker{position:absolute;right:max(16px,6%);top:30px;transform:rotate(8deg);background:var(--ink);color:var(--bg);font-weight:900;font-size:13px;padding:8px 12px;border-radius:999px;white-space:nowrap}
+.search{display:flex;align-items:center;gap:10px;border-bottom:2px solid var(--ink);margin-top:26px;max-width:720px}
+.search svg{flex:none}
+.search input{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);font:inherit;font-size:16px;padding:12px 0}
+.search input::placeholder{color:var(--off)}
+.search button{border:0;background:none;font:inherit;font-weight:900;color:var(--ink);cursor:pointer;padding:8px 0}
+#results{max-width:720px;margin-top:8px;display:flex;flex-direction:column}
+#results a,#results p{padding:10px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}
+#results p{margin:0;color:var(--muted)}
+#results .pg{color:var(--muted);font-size:13px;flex:none}
+
+/* urgent */
+.urgent{background:var(--red);color:#fff}
+.urgent .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;padding-block:14px}
+.urgent b{font-size:15px;font-weight:900}
+.urgent a{font-size:14px;font-weight:700;border-bottom:1.5px solid rgb(255 255 255 / .6)}
+.urgent span{font-size:13px;opacity:.9}
+
+section.blk{padding-block:40px 8px}
+.blk h2{font-size:22px;font-weight:900;letter-spacing:-.02em}
+.blk .sub{color:var(--muted);font-size:14px;margin:4px 0 0}
+
+/* round shortcuts */
+.circles{display:flex;gap:18px;overflow-x:auto;padding:20px 2px 6px;scrollbar-width:thin}
+.circ{flex:0 0 auto;width:92px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.circ .o{width:78px;height:78px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:14px;line-height:1.2;border:1.5px solid var(--ink);background:var(--bg);color:var(--ink);padding:6px}
+.circ.dark .o{background:var(--ink);color:var(--bg)}
+.circ.red .o{background:var(--red);border-color:var(--red);color:#fff}
+.circ span.t{font-size:12.5px;color:var(--muted);line-height:1.35}
+.circ:hover .o{transform:translateY(-2px)}
+@media (prefers-reduced-motion:no-preference){.circ .o{transition:transform .15s}}
+.circ.off{opacity:.45;pointer-events:none}
+
+/* tags */
+.tags{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:16px;font-size:15px;font-weight:700}
+.tags a{color:var(--muted)}
+.tags a:first-child{color:var(--ink)}
+.tags a:hover{color:var(--red)}
+
+/* parts */
+.part{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:8px 32px;padding-block:28px;border-top:1px solid var(--line)}
+.part:first-of-type{border-top:2px solid var(--ink)}
+.pn{font-size:clamp(72px,14vw,132px);font-weight:900;line-height:.85;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+.part:nth-child(even) .pn{color:var(--ink);-webkit-text-stroke:0}
+.ph h3{font-size:24px;font-weight:900;letter-spacing:-.03em}
+.ph p{margin:4px 0 14px;color:var(--muted);font-size:14px}
+.list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 24px}
+.list a,.list .off{display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line);min-width:0;font-size:14.5px;font-weight:700}
+.list .no{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;flex:none;font-weight:500}
+.list .off{color:var(--off)}
+.list .off::after{content:"준비 중";margin-left:auto;font-size:11px;font-weight:500;flex:none}
+.list a::after{content:"→";margin-left:auto;color:var(--red);flex:none}
+.list a:hover{color:var(--red)}
+
+footer{border-top:1px solid var(--line);margin-top:40px;padding-block:24px 40px;color:var(--muted);font-size:13px}
+footer b{color:var(--ink)}
+
+@media (max-width:860px){.list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){
+  .part{grid-template-columns:minmax(0,1fr)}
+  .pn{font-size:80px}
+  .list{grid-template-columns:minmax(0,1fr)}
+  .sticker{top:14px;font-size:12px}
+  .hero{padding-top:56px}
+}
+</style>
+
+<header class="top gut">
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="첫 화면"><small>전기 도와주는</small><b>영실</b></a>
+    <nav class="menu" aria-label="주요 메뉴">
+      <a class="hot" href="#urgent">지금 위험해요</a>
+      <a href="#symptom">증상 찾기</a>
+      <a href="#p0">처음이에요</a>
+      <a href="#p1">우리 집 전기</a>
+      <a href="#p2">공구</a>
+      <a href="#p3">공사할 때</a>
+      <a href="#p4">분전반</a>
+      <a href="#p5">고장</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero gut">
+    <div class="wrap">
+      <span class="sticker">어려운 말 몰라도 돼요</span>
+      <div class="eb">직접 보고, 확인하고, 기사님께 정확히 말하기</div>
+      <h1>집 전기,<br>어디가 <em>이상해요?</em></h1>
+      <p>가장 비슷한 상황을 누르세요. 그대로 따라 하고, 기사님께 보낼 문장까지 만들어 드려요.</p>
+      <form class="search" id="sf" role="search">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6.5" stroke="currentColor" stroke-width="2" fill="none"/><path d="M13.5 13.5 L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <label for="q" class="sr" hidden>상황 검색</label>
+        <input id="q" type="search" placeholder="상황을 그대로 적어 보세요 — 예: 차단기가 내려갔어요" autocomplete="off">
+        <button type="submit">찾기</button>
+      </form>
+      <div id="results" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="urgent gut" id="urgent">
+    <div class="wrap">
+      <b>지금 위험해요</b>
+      <a href="#" data-id="5-7">탄 냄새·연기가 나요</a>
+      <a href="#" data-id="5-7">콘센트가 뜨거워요</a>
+      <a href="#" data-id="5-9">사람이 감전됐어요</a>
+      <a href="#" data-id="5-10">물이 샜어요</a>
+      <a href="#" data-id="5-8">화재경보가 울려요</a>
+      <span>불꽃·연기가 보이면 먼저 대피하고 119</span>
+    </div>
+  </div>
+
+  <section class="blk gut" id="symptom">
+    <div class="wrap">
+      <h2>증상으로 찾기</h2>
+      <p class="sub">지금 겪는 일과 가장 비슷한 것을 누르세요.</p>
+      <div class="circles" id="circles"></div>
+
+      <h2 style="margin-top:28px">많이 찾는 말</h2>
+      <div class="tags" id="tags"></div>
+    </div>
+  </section>
+
+  <section class="blk gut" id="parts-sec">
+    <div class="wrap">
+      <h2>처음부터 차근차근</h2>
+      <p class="sub">우리 집 전기가 어떻게 생겼는지부터 알면, 고장 났을 때 훨씬 덜 당황해요.</p>
+      <div id="parts" style="margin-top:20px"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="gut">
+  <div class="wrap">
+    <b>전기 도와주는 영실</b>은 집 전기를 직접 보고 확인한 뒤, 기사님께 정확히 말할 수 있도록 돕는 안내서예요.
+    배선을 늘리거나 분전반을 고치는 일은 면허 있는 전기공사업체에 맡겨 주세요. 불꽃·연기가 보이면 119.
+  </div>
+</footer>
+
+<script>
+const URL_11="https://claude.ai/artifact/1nGz2f6pbU3sYYWRFwD13U";
+const URL_51="https://claude.ai/artifact/DWKB6girT2PA7TCutYeCFR";
+const PART_URL={"0":"https://claude.ai/artifact/N6KSJCi44CdaFNznxNHTo2","1":URL_11,"2":"https://claude.ai/artifact/4Jc6gbhmEGu4XEwnFrrPQJ","3":"https://claude.ai/artifact/AtNnHgyYKif8BKJrUwR5MA","4":"https://claude.ai/artifact/JXzuZgjHhx2ghqiWXcV7tp","5":URL_51};
+const LINK=new Proxy({},{get:(_,id)=>typeof id==="string"&&PART_URL[id[0]]?PART_URL[id[0]]+"#p"+id:undefined});
+const PARTS=[
+ {id:"p0",name:"시작하며",d:"이 안내 읽는 법, 내가 해도 되는 일과 안 되는 일",pages:[["0-1","영실 이렇게 읽어요","처음 읽는법 수도 비유"],["0-2","내가 해도 되는 일, 안 되는 일","직접 해도 되는 일 면허 교체 법"]]},
+ {id:"p1",name:"우리 집 전기",d:"전기가 어디서 와서 집 안 어디로 가는지",pages:[["1-1","전기는 어디서 와서 우리 집에 들어올까","정전 한전 계량기 변압기"],["1-2","220V와 380V, 우리 집은?","전압 단상 삼상"],["1-3","분전반 문 열어 보기","분전반 차단기 두꺼비집"],["1-4","우리 집 회로 지도 만들기","회로 이름표 차단기"],["1-5","전선 세 가닥: 갈색, 파랑, 초록노랑","전선 색 접지"],["1-6","접지가 뭐예요?","접지 콘센트 쇠붙이"],["1-7","W와 kWh, 전기요금 읽기","전기요금 와트 소비전력"],["1-8","전선이 뜨거워지는 이유","멀티탭 발열 뜨거움"],["1-9","오래된 집 전기, 무엇을 봐야 할까","구축 아파트 공사"],["1-10","아이·반려동물 있는 집","아이 아기 강아지 고양이 안전 덮개 콘센트 마개"]]},
+ {id:"p2",name:"공구와 재료",d:"내 손에 들 공구, 기사님 장비, 벽 속 재료",pages:[["2-1","검전기: 전기가 오는지 먼저 확인","검전기 확인"],["2-2","멀티테스터: 전압 재기","테스터 전압"],["2-3","클램프미터: 지금 얼마나 쓰는지","전류 클램프"],["2-4","메거: 기사님의 누전 검사 장비","절연저항 메거 누전"],["2-5","전선 굵기와 차단기 짝","전선 굵기"],["2-6","벽 속 전선 길: 전선관","주름관 배관"],["2-7","콘센트와 플러그 종류","콘센트 방수 욕실"],["2-8","도면에서 전기 기호 찾기","도면 기호"]]},
+ {id:"p3",name:"공사할 때",d:"내가 하는 작은 교체와, 인테리어 공사 확인하기",pages:[["3-1","콘센트 교체하기","콘센트 교체 깨짐"],["3-2","스위치: 한 곳에서, 두 곳에서 켜기","3로 스위치 계단"],["3-3","조명 고르기: 색과 밝기","전구 색온도 밝기"],["3-4","간접조명 계획하기","간접조명 LED"],["3-5","전기 필름 난방","바닥 난방"],["3-6","인테리어 공정 속 전기 순서","인테리어 공정"],["3-7","끝나고 확인할 것: 검수표","검수 체크리스트"],["3-8","전용 회로 요청하기","인덕션 에어컨 전용"],["3-9","전기 안전점검, 무료로 받기","안전점검 무료 한국전기안전공사 점검"],["3-10","믿을 만한 업체 고르기","업체 견적 면허 등록 공사"],["3-11","전기차를 집 콘센트로 충전한다면","전기차 충전 휴대용 충전기"],["3-12","베란다 미니 태양광","태양광 베란다 패널"]]},
+ {id:"p4",name:"분전반과 보호",d:"차단기 글자 읽기, 우리 집을 지키는 장치",pages:[["4-1","차단기에 적힌 글자 읽기","차단기 숫자"],["4-2","누전차단기 시험 버튼 눌러 보기","T 버튼 테스트"],["4-3","세 가지 사고: 과부하, 합선, 누전","과부하 합선 누전"],["4-4","퓨즈는 무엇일까","퓨즈"],["4-5","번개와 서지 보호","번개 천둥 공유기"],["4-6","계약 전력과 메인 차단기","계약전력 용량"]]},
+ {id:"p5",name:"고장",d:"증상에서 출발해 순서대로 확인하기",pages:[["5-1","누전차단기가 자꾸 떨어져요","차단기 내려감 떨어짐 누전"],["5-2","왜 떨어졌을까","원인 기사님 문장"],["5-3","콘센트 하나만 안 돼요","콘센트 안됨"],["5-4","불이 깜빡여요","깜빡 조명 LED"],["5-5","뭘 켜면 다 떨어져요","전자레인지 켜면 꺼짐"],["5-6","인터넷·TV가 안 돼요","인터넷 공유기 모뎀"],["5-7","탄 냄새가 나요, 콘센트가 뜨거워요","탄냄새 연기 뜨거움"],["5-8","불도 안 났는데 화재경보가 울려요","화재경보 감지기 오경보"],["5-9","사람이 감전됐어요","감전 찌릿 응급 119"],["5-10","물이 샜어요, 집에 물이 찼어요","누수 침수 물 장마 천장"]]}
+];
+const CIRC=[["5-1","차단기","차단기가 내려갔어요","dark"],["5-3","콘센트","콘센트 하나만 안 돼요",""],["5-4","깜빡","불이 깜빡여요",""],["5-5","켜면 꺼짐","뭘 켜면 다 꺼져요","dark"],["1-1","정전","집 불이 다 꺼졌어요",""],["5-7","탄 냄새","탄 냄새·뜨거움","red"],["5-8","화재경보","불 없는데 울려요","dark"],["5-6","인터넷","인터넷·TV 안 돼요",""],["1-7","요금","전기요금이 많이 나와요",""],["3-8","새 가전","인덕션·에어컨 들일 때","dark"],["5-10","누수","물이 샜어요","red"],["3-9","무료 점검","안전점검 받기",""]];
+const TAGS=[["#차단기가 내려갔어요","5-1"],["#전기차 충전","3-11"],["#업체 고르기","3-10"],["#누전","5-2"],["#콘센트 교체","3-1"],["#멀티탭 뜨거움","1-8"],["#3로 스위치","3-2"],["#접지","1-6"],["#인덕션 전용 회로","3-8"],["#화재경보","5-8"]];
+const ALL=PARTS.flatMap(p=>p.pages.map(([id,t,k])=>({id,t,k,part:p.name})));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const href=id=>LINK[id]||null;
+function aOrSpan(id,inner,cls){const h=href(id);return h?`<a class="${cls}" href="${h}" target="_blank" rel="noopener">${inner}</a>`:`<span class="${cls} off" aria-disabled="true">${inner}</span>`}
+
+document.getElementById("circles").innerHTML=CIRC.map(([id,w,t,c])=>aOrSpan(id,`<span class="o">${esc(w)}</span><span class="t">${esc(t)}</span>`,"circ "+c)).join("");
+document.getElementById("tags").innerHTML=TAGS.map(([t,id])=>{const h=href(id);return h?`<a href="${h}" target="_blank" rel="noopener">${esc(t)}</a>`:`<a href="#" data-id="${id}">${esc(t)}</a>`}).join("");
+document.getElementById("parts").innerHTML=PARTS.map((p,i)=>`<div class="part" id="${p.id}"><div class="pn" aria-hidden="true">${i}</div><div class="ph"><h3>${esc(p.name)}</h3><p>${esc(p.d)}</p><div class="list">${p.pages.map(([id,t])=>{const h=href(id);const inner=`<span class="no">${id}</span><span>${esc(t)}</span>`;return h?`<a href="${h}" target="_blank" rel="noopener">${inner}</a>`:`<span class="off">${inner}</span>`}).join("")}</div></div></div>`).join("");
+
+document.querySelectorAll('.urgent a,[data-id]').forEach(a=>{const id=a.dataset.id;const h=id&&href(id);if(h){a.href=h;a.target="_blank";a.rel="noopener"}else if(id){a.addEventListener("click",e=>{e.preventDefault();const r=ALL.find(x=>x.id===id);showResults([r],true)})}});
+
+const res=document.getElementById("results");
+function showResults(list,soon){
+  if(!list.length){res.innerHTML=`<p>비슷한 쪽을 못 찾았어요. 짧은 말로 다시 적어 보세요 — 예: 콘센트, 차단기, 냄새</p>`;return}
+  res.innerHTML=list.slice(0,6).map(r=>{const h=href(r.id);return h?`<a href="${h}" target="_blank" rel="noopener"><span>${esc(r.t)}</span><span class="pg">${esc(r.part)}</span></a>`:`<p><span>${esc(r.t)}</span><span class="pg">준비 중</span></p>`}).join("");
+}
+function search(){
+  const q=document.getElementById("q").value.trim().replace(/\s+/g,"");
+  if(!q){res.innerHTML="";return}
+  const words=document.getElementById("q").value.trim().split(/\s+/).filter(w=>w.length>0);
+  const scored=ALL.map(r=>{const hay=(r.t+r.k).replace(/\s+/g,"");let s=0;words.forEach(w=>{for(let n=w.length;n>=2;n--){if(hay.includes(w.slice(0,n))){s+=n;break}}});return{r,s}}).filter(x=>x.s>0).sort((a,b)=>b.s-a.s);
+  showResults(scored.map(x=>x.r));
+}
+document.getElementById("sf").addEventListener("submit",e=>{e.preventDefault();search()});
+document.getElementById("q").addEventListener("input",search);
+</script>

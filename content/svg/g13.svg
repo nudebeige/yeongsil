@@ -1,0 +1,22 @@
+<svg viewBox="0 0 560 280" role="img" aria-label="멀티테스터 다이얼: 물결 표시 V에 맞추면 콘센트 전압을 잴 수 있고, 저항이나 전류 칸에 두고 콘센트에 넣으면 위험하다" xmlns="http://www.w3.org/2000/svg">
+<rect width="560" height="280" rx="16" fill="#eef1f0"/>
+<g font-family="Noto Sans KR, Malgun Gothic, sans-serif">
+<rect x="40" y="20" width="200" height="240" rx="22" fill="#f2c230" stroke="#c99a12" stroke-width="2"/>
+<rect x="62" y="38" width="156" height="56" rx="8" fill="#c9d6c2" stroke="#7d8a78" stroke-width="2"/>
+<text x="140" y="78" text-anchor="middle" font-family="Consolas, monospace" font-size="34" font-weight="700" fill="#1d2623">221.4</text>
+<circle cx="140" cy="172" r="62" fill="#2b2f2e"/>
+<circle cx="140" cy="172" r="40" fill="#454b49"/>
+<rect x="136" y="114" width="8" height="40" rx="4" fill="#ffffff" transform="rotate(-50 140 172)"/>
+<g font-size="13" font-weight="900" fill="#ffffff" text-anchor="middle">
+<text x="92" y="118">V~</text><text x="140" y="104" fill="#9aa19e">OFF</text><text x="190" y="118" fill="#9aa19e">V=</text><text x="210" y="180" fill="#9aa19e">Ω</text><text x="186" y="236" fill="#9aa19e">A</text></g>
+<circle cx="92" cy="113" r="16" fill="none" stroke="#2fd17a" stroke-width="3"/>
+<path d="M260 96 H300" stroke="#2c9a4b" stroke-width="3"/><circle cx="260" cy="96" r="5" fill="#2c9a4b"/>
+<text x="310" y="92" font-size="16" font-weight="900" fill="#1f5a4c">V~ (물결 V) 에 맞춰요</text>
+<text x="310" y="114" font-size="12.5" font-weight="700" fill="#5d6a66">콘센트 전기를 재는 칸이에요</text>
+<text x="310" y="134" font-size="12.5" font-weight="700" fill="#5d6a66">200~230이 나오면 정상</text>
+<path d="M260 196 H300" stroke="#c73a2e" stroke-width="3"/><circle cx="260" cy="196" r="5" fill="#c73a2e"/>
+<text x="310" y="192" font-size="16" font-weight="900" fill="#c73a2e">Ω · A 칸은 위험해요</text>
+<text x="310" y="214" font-size="12.5" font-weight="700" fill="#5d6a66">이 칸에 둔 채 콘센트에 넣으면</text>
+<text x="310" y="234" font-size="12.5" font-weight="700" fill="#5d6a66">불꽃이 튀거나 테스터가 망가져요</text>
+</g>
+</svg>

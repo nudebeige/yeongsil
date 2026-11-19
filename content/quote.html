@@ -1,0 +1,54 @@
+<style>
+.qwrap{overflow-x:auto;margin:0 -4px;padding:4px}
+.quote{min-width:520px;background:#fffdf8;color:#1d2623;border:1px solid #cfc9bc;border-radius:4px;padding:18px 18px 14px;font-size:12.5px;line-height:1.45;box-shadow:0 2px 8px rgb(0 0 0 / .08);font-family:"Noto Sans KR","Malgun Gothic",sans-serif}
+.quote h3{text-align:center;font-size:22px;letter-spacing:.6em;margin:0 0 12px;font-weight:900}
+.quote .qtop{display:grid;grid-template-columns:1fr 1.2fr;gap:12px;align-items:start}
+.quote table{border-collapse:collapse;width:100%}
+.quote td,.quote th{border:1px solid #8f8a7e;padding:4px 6px;vertical-align:middle}
+.quote th{background:#efeadf;font-weight:700;white-space:nowrap}
+.quote .sup th{width:62px}
+.quote .qtot{margin:10px 0;border:2px solid #1d2623;padding:6px 10px;font-weight:900;font-size:14px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.quote .items th{text-align:center}
+.quote .items td.qn{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.quote .items td.qc{text-align:center}
+.quote .items tr.qsum td{background:#f6f2e8;font-weight:900}
+.quote .qnote{margin-top:8px;border:1px solid #8f8a7e;padding:6px 8px}
+.quote .qnote b{display:inline-block;min-width:76px}
+.qk{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#e0362c;color:#fff;font-size:11px;font-weight:900;margin-right:4px;vertical-align:-3px}
+.qbad{background:#fdecea}
+.qex{font-size:11px;color:#8a8478;text-align:right;margin-top:6px}
+.qlegend{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-direction:column;gap:7px;font-size:14px}
+.qlegend li{display:grid;grid-template-columns:22px 1fr;gap:6px;align-items:start}
+.qlegend .qk{margin:2px 0 0}
+.qhint{font-size:12.5px;color:var(--muted);margin:0 0 6px}@media (min-width:600px){.qhint{display:none}}
+</style>
+<p class="qhint">← 실제 견적서처럼 옆으로 밀어서 보세요 →</p><div class="qwrap"><div class="quote" role="img" aria-label="전기공사 내역서형 견적서 예시">
+<h3>견적서</h3>
+<div class="qtop">
+<table><tr><th>수 신</th><td>○○아파트 ○동 ○호 귀하</td></tr><tr><th>공사명</th><td>주방·욕실 콘센트 교체 및 전용 회로 신설</td></tr><tr><th>견적일</th><td>20○○년 ○월 ○일</td></tr><tr><th>유효기간</th><td>견적일로부터 30일</td></tr></table>
+<table class="sup"><tr><th>상 호</th><td>○○전기 (예시)</td></tr><tr><th>등록번호</th><td><span class="qk">1</span>전기공사업 제○○-○○○○호</td></tr><tr><th>대 표</th><td>○○○ (인)</td></tr><tr><th>연락처</th><td>010-○○○○-○○○○</td></tr></table>
+</div>
+<div class="qtot"><span>합계 금액 (부가세 포함)</span><span>일금 일백칠십오만사천오백 원정 (₩1,754,500)</span></div>
+<table class="items">
+<tr><th>품 명</th><th>규 격 <span class="qk">2</span></th><th>수량</th><th>단위</th><th>단 가</th><th>금 액</th><th>비 고</th></tr>
+<tr><td>매입 콘센트 (접지형)</td><td>2구 16A 250V</td><td class="qc">6</td><td class="qc">개</td><td class="qn">12,000</td><td class="qn">72,000</td><td>같은 자리 교체</td></tr>
+<tr><td>욕실 방적형 콘센트</td><td>접지·덮개형</td><td class="qc">1</td><td class="qc">개</td><td class="qn">25,000</td><td class="qn">25,000</td><td></td></tr>
+<tr><td>누전차단기 (분기)</td><td>20A 30mA 2P</td><td class="qc">1</td><td class="qc">개</td><td class="qn">38,000</td><td class="qn">38,000</td><td>인덕션 전용</td></tr>
+<tr><td>전선 (HFIX)</td><td>4sq</td><td class="qc">25</td><td class="qc">m</td><td class="qn">2,400</td><td class="qn">60,000</td><td>전용 회로</td></tr>
+<tr><td>전선관 (CD관)</td><td>22mm</td><td class="qc">20</td><td class="qc">m</td><td class="qn">1,500</td><td class="qn">30,000</td><td></td></tr>
+<tr><td>인건비 (내선전공)</td><td>1일</td><td class="qc">3</td><td class="qc">인</td><td class="qn">380,000</td><td class="qn">1,140,000</td><td></td></tr>
+<tr><td><span class="qk">3</span>절연저항 측정</td><td>갈래별 성적서</td><td class="qc">1</td><td class="qc">식</td><td class="qn">80,000</td><td class="qn">80,000</td><td>결과지 제출</td></tr>
+<tr class="qbad"><td><span class="qk">5</span>기타 공사</td><td></td><td class="qc">1</td><td class="qc">식</td><td class="qn">150,000</td><td class="qn">150,000</td><td>내용 확인 필요</td></tr>
+<tr class="qsum"><td colspan="5">공급가액</td><td class="qn">1,595,000</td><td></td></tr>
+<tr class="qsum"><td colspan="5">부가세 (10%)</td><td class="qn">159,500</td><td></td></tr><tr class="qsum"><td colspan="5">합 계</td><td class="qn">1,754,500</td><td></td></tr>
+</table>
+<div class="qnote"><b>하자 보수</b><span class="qk">4</span>준공일로부터 1년 · <b>대금 지급</b> 착수 30% / 완료 후 검수 뒤 70% · <b>특기 사항</b> 도배·타일 손상 시 원상 복구, 폐자재 처리 포함</div>
+<div class="qex">※ 이해를 돕기 위한 예시 양식이며, 금액은 실제 시세가 아니에요.</div>
+</div></div>
+<ul class="qlegend">
+<li><span class="qk">1</span><span><b>등록번호</b> · 전기공사업 등록이 적혀 있는지. 없으면 물어봐요.</span></li>
+<li><span class="qk">2</span><span><b>규격·수량</b> · 전선 굵기(sq), 차단기 A·mA, 콘센트 종류가 줄마다 따로 적혀 있어야 비교가 돼요.</span></li>
+<li><span class="qk">3</span><span><b>절연저항 측정</b> · 측정하고 결과지를 주는지(2-4쪽).</span></li>
+<li><span class="qk">4</span><span><b>하자 보수·대금 지급</b> · 보수 기간이 숫자로, 대금은 검수 뒤에 나눠 내도록.</span></li>
+<li><span class="qk">5</span><span><b>'1식'·'일체'로 뭉친 줄</b> · 무엇이 들어 있는지 풀어서 적어 달라고 해요. 이런 줄이 많을수록 나중에 따지기 어려워요.</span></li>
+</ul>

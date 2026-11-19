@@ -1,0 +1,24 @@
+<svg viewBox="0 0 560 200" role="img" aria-label="유리관 퓨즈 두 개: 왼쪽은 가운데 선이 이어진 멀쩡한 퓨즈, 오른쪽은 선이 끊어지고 안쪽이 그을린 퓨즈" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="fz-cap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9edf0"/><stop offset=".5" stop-color="#aab3b9"/><stop offset="1" stop-color="#d9dee2"/></linearGradient>
+<linearGradient id="fz-glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".9"/><stop offset=".5" stop-color="#dfe9ef" stop-opacity=".6"/><stop offset="1" stop-color="#ffffff" stop-opacity=".9"/></linearGradient>
+<radialGradient id="fz-soot" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#4a3a2a" stop-opacity=".75"/><stop offset="1" stop-color="#4a3a2a" stop-opacity="0"/></radialGradient></defs>
+<rect width="560" height="200" rx="16" fill="#eef1f0"/>
+<g font-family="Noto Sans KR, Malgun Gothic, sans-serif">
+<g transform="translate(40 60)">
+<rect x="30" y="0" width="150" height="44" rx="6" fill="url(#fz-glass)" stroke="#b7c2c8" stroke-width="2"/>
+<rect x="0" y="-4" width="34" height="52" rx="6" fill="url(#fz-cap)" stroke="#8d9592"/><rect x="176" y="-4" width="34" height="52" rx="6" fill="url(#fz-cap)" stroke="#8d9592"/>
+<path d="M34 22 C70 14 140 30 176 22" stroke="#7d868b" stroke-width="3" fill="none"/>
+</g>
+<g transform="translate(310 60)">
+<rect x="30" y="0" width="150" height="44" rx="6" fill="url(#fz-glass)" stroke="#b7c2c8" stroke-width="2"/>
+<ellipse cx="105" cy="22" rx="50" ry="20" fill="url(#fz-soot)"/>
+<rect x="0" y="-4" width="34" height="52" rx="6" fill="url(#fz-cap)" stroke="#8d9592"/><rect x="176" y="-4" width="34" height="52" rx="6" fill="url(#fz-cap)" stroke="#8d9592"/>
+<path d="M34 22 C60 16 84 24 94 21" stroke="#7d868b" stroke-width="3" fill="none"/><circle cx="95" cy="21" r="3" fill="#7d868b"/>
+<path d="M176 22 C150 28 128 20 117 23" stroke="#7d868b" stroke-width="3" fill="none"/><circle cx="116" cy="23" r="3" fill="#7d868b"/>
+</g>
+<g text-anchor="middle">
+<text x="145" y="150" font-size="15" font-weight="900" fill="#1f5a4c">멀쩡한 퓨즈</text><text x="145" y="172" font-size="12.5" font-weight="700" fill="#5d6a66">가운데 가는 선이 이어져 있어요</text>
+<text x="415" y="150" font-size="15" font-weight="900" fill="#c73a2e">끊어진 퓨즈</text><text x="415" y="172" font-size="12.5" font-weight="700" fill="#5d6a66">선이 끊기고 안이 거뭇해요 → 같은 A로 교체</text>
+</g>
+</g>
+</svg>

@@ -1,0 +1,18 @@
+<svg viewBox="0 0 560 250" role="img" aria-label="검전기 세 번 확인: 살아 있는 콘센트에서 울리는지, 작업할 콘센트에서 조용한지, 다시 살아 있는 콘센트에서 울리는지" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<g id="sock"><rect x="-46" y="-46" width="92" height="92" rx="14" fill="#fff" stroke="#c9cfcc" stroke-width="2"/><circle r="32" fill="#f1f3f2" stroke="#cfd4d1" stroke-width="2"/><circle cx="-12" r="6" fill="#3a3f3d"/><circle cx="12" r="6" fill="#3a3f3d"/></g>
+<g id="pen"><rect x="-8" y="-70" width="16" height="74" rx="8" fill="#ffffff" stroke="#8d9592" stroke-width="2"/><rect x="-8" y="-70" width="16" height="22" rx="8" fill="#e8b23a"/><path d="M-4 4 L0 16 L4 4 Z" fill="#8d9592"/></g>
+<radialGradient id="glow"><stop offset="0" stop-color="#ff5a4f" stop-opacity=".9"/><stop offset="1" stop-color="#ff5a4f" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="560" height="250" rx="16" fill="#eef1f0"/>
+<g font-family="Noto Sans KR, Malgun Gothic, sans-serif">
+<g transform="translate(95 120)"><use href="#sock"/><g transform="translate(-12 -6) rotate(-25)"><circle cy="-60" r="22" fill="url(#glow)"/><use href="#pen"/></g></g>
+<g transform="translate(280 120)"><use href="#sock"/><g transform="translate(-12 -6) rotate(-25)"><use href="#pen"/></g></g>
+<g transform="translate(465 120)"><use href="#sock"/><g transform="translate(-12 -6) rotate(-25)"><circle cy="-60" r="22" fill="url(#glow)"/><use href="#pen"/></g></g>
+<path d="M160 120 H212 M345 120 H397" stroke="#9aa19e" stroke-width="3" stroke-dasharray="6 5"/>
+<g font-weight="900" font-size="14" fill="#1d2623" text-anchor="middle">
+<text x="95" y="200">① 살아 있는 곳</text><text x="280" y="200">② 작업할 곳</text><text x="465" y="200">③ 다시 살아 있는 곳</text></g>
+<g font-weight="700" font-size="12.5" text-anchor="middle">
+<text x="95" y="222" fill="#c73a2e">삐- 울려요 = 검전기 정상</text><text x="280" y="222" fill="#1f5a4c">조용해요 = 꺼졌어요</text><text x="465" y="222" fill="#c73a2e">또 울려요 = 끝까지 정상</text></g>
+</g>
+</svg>

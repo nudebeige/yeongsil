@@ -1,0 +1,23 @@
+<svg viewBox="0 0 560 270" role="img" aria-label="3로 스위치 연결: 계단 아래 스위치와 계단 위 스위치가 선 두 가닥으로 이어지고, 어느 쪽에서 눌러도 천장 등이 켜지고 꺼진다" xmlns="http://www.w3.org/2000/svg">
+<rect width="560" height="270" rx="16" fill="#eef1f0"/>
+<g font-family="Noto Sans KR, Malgun Gothic, sans-serif">
+<path d="M28 150 H96" stroke="#7b4a22" stroke-width="5" stroke-linecap="round"/>
+<text x="28" y="140" font-size="12" font-weight="700" fill="#5d6a66">분전반에서</text>
+<rect x="96" y="128" width="60" height="44" rx="8" fill="#fff" stroke="#8d9592" stroke-width="2"/>
+<circle cx="110" cy="150" r="5" fill="#b8862c"/><circle cx="146" cy="138" r="5" fill="#b8862c"/><circle cx="146" cy="162" r="5" fill="#b8862c"/>
+<path d="M110 150 L146 138" stroke="#1d2623" stroke-width="4" stroke-linecap="round"/>
+<path d="M146 138 H404 M146 162 H404" stroke="#e0362c" stroke-width="4"/>
+<rect x="404" y="128" width="60" height="44" rx="8" fill="#fff" stroke="#8d9592" stroke-width="2"/>
+<circle cx="450" cy="150" r="5" fill="#b8862c"/><circle cx="414" cy="138" r="5" fill="#b8862c"/><circle cx="414" cy="162" r="5" fill="#b8862c"/>
+<path d="M450 150 L414 138" stroke="#1d2623" stroke-width="4" stroke-linecap="round"/>
+<path d="M464 150 H500 V70 H300" stroke="#7b4a22" stroke-width="5" fill="none" stroke-linejoin="round"/>
+<circle cx="280" cy="70" r="24" fill="#ffd95a" stroke="#c99a12" stroke-width="2"/><circle cx="280" cy="70" r="40" fill="#ffd95a" opacity=".25"/>
+<path d="M256 70 H24" stroke="#1f5fbf" stroke-width="5" fill="none"/>
+<text x="28" y="60" font-size="12" font-weight="700" fill="#1f5fbf">분전반으로 돌아가는 선</text>
+<text x="126" y="200" text-anchor="middle" font-size="14" font-weight="900" fill="#1d2623">계단 아래 스위치</text>
+<text x="434" y="200" text-anchor="middle" font-size="14" font-weight="900" fill="#1d2623">계단 위 스위치</text>
+<text x="275" y="124" text-anchor="middle" font-size="13" font-weight="900" fill="#e0362c">두 스위치를 잇는 선 2가닥</text>
+<text x="280" y="236" text-anchor="middle" font-size="12" font-weight="700" fill="#5d6a66">어느 쪽에서 눌러도 길이 바뀌어 켜지고 꺼져요</text>
+<text x="330" y="74" font-size="13" font-weight="900" fill="#1d2623">천장 등</text>
+</g>
+</svg>

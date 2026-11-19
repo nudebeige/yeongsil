@@ -1,0 +1,25 @@
+<svg viewBox="0 0 560 260" role="img" aria-label="우리 집 천장 감지기 신호가 층마다 있는 중계기에서 번호를 달고 관리실 수신기로 가서, 수신기 화면에 동과 호수가 뜬다" xmlns="http://www.w3.org/2000/svg">
+<rect width="560" height="260" rx="16" fill="#eef1f0"/>
+<g font-family="Noto Sans KR, Malgun Gothic, sans-serif">
+<rect x="20" y="30" width="150" height="150" rx="12" fill="#fff" stroke="#d6dbd8"/>
+<path d="M20 58 H170" stroke="#d6dbd8"/>
+<ellipse cx="95" cy="64" rx="26" ry="9" fill="#f7f8f7" stroke="#b7bfbb" stroke-width="2"/><circle cx="108" cy="66" r="3" fill="#e0362c"/>
+<g fill="#c9cfcc" opacity=".8"><circle cx="80" cy="120" r="12"/><circle cx="96" cy="104" r="15"/><circle cx="112" cy="92" r="11"/></g>
+<rect x="52" y="140" width="86" height="12" rx="4" fill="#8d9592"/>
+<text x="95" y="206" text-anchor="middle" font-size="14" font-weight="900" fill="#1d2623">① 우리 집 감지기</text>
+<text x="95" y="226" text-anchor="middle" font-size="12" font-weight="700" fill="#5d6a66">연기·열을 느껴요</text>
+<path d="M170 100 H218" stroke="#e0362c" stroke-width="4" stroke-dasharray="7 5"/>
+<rect x="222" y="66" width="104" height="74" rx="10" fill="#d9dedb" stroke="#8d9592" stroke-width="2"/>
+<rect x="240" y="80" width="68" height="36" rx="5" fill="#1d2623"/><text x="274" y="106" text-anchor="middle" font-family="Consolas, monospace" font-size="22" font-weight="700" fill="#ff8a7f">12</text>
+<text x="274" y="206" text-anchor="middle" font-size="14" font-weight="900" fill="#1d2623">② 층마다 중계기</text>
+<text x="274" y="226" text-anchor="middle" font-size="12" font-weight="700" fill="#5d6a66">신호에 번호를 붙여요</text>
+<path d="M326 100 H374" stroke="#e0362c" stroke-width="4" stroke-dasharray="7 5"/>
+<rect x="378" y="30" width="160" height="150" rx="12" fill="#c9cfcc" stroke="#8d9592" stroke-width="2"/>
+<circle cx="458" cy="52" r="10" fill="#e0362c"/>
+<rect x="394" y="72" width="128" height="50" rx="6" fill="#1d2623"/>
+<text x="458" y="95" text-anchor="middle" font-size="13" font-weight="900" fill="#ff8a7f">화재 신호</text><text x="458" y="114" text-anchor="middle" font-size="13" font-weight="900" fill="#ffffff">101동 1203호</text>
+<g fill="#8d9592"><rect x="398" y="136" width="20" height="10" rx="2"/><rect x="424" y="136" width="20" height="10" rx="2"/><rect x="450" y="136" width="20" height="10" rx="2"/><rect x="476" y="136" width="20" height="10" rx="2"/><rect x="502" y="136" width="20" height="10" rx="2"/></g>
+<text x="458" y="206" text-anchor="middle" font-size="14" font-weight="900" fill="#1d2623">③ 관리실 수신기</text>
+<text x="458" y="226" text-anchor="middle" font-size="12" font-weight="700" fill="#5d6a66">어느 집인지 바로 떠요</text>
+</g>
+</svg>
