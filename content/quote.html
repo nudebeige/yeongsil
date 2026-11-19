@@ -22,7 +22,7 @@
 .qlegend .qk{margin:2px 0 0}
 .qhint{font-size:12.5px;color:var(--muted);margin:0 0 6px}@media (min-width:600px){.qhint{display:none}}
 </style>
-<p class="qhint">← 실제 견적서처럼 옆으로 밀어서 보세요 →</p><div class="qwrap"><div class="quote" role="img" aria-label="전기공사 내역서형 견적서 예시">
+<p class="qhint">← 실제 견적서처럼 옆으로 밀어서 보세요 →</p><div class="qwrap" tabindex="0" role="region" aria-label="전기공사 내역서형 견적서 예시 (옆으로 밀어서 보기)"><div class="quote">
 <h3>견적서</h3>
 <div class="qtop">
 <table><tr><th>수 신</th><td>○○아파트 ○동 ○호 귀하</td></tr><tr><th>공사명</th><td>주방·욕실 콘센트 교체 및 전용 회로 신설</td></tr><tr><th>견적일</th><td>20○○년 ○월 ○일</td></tr><tr><th>유효기간</th><td>견적일로부터 30일</td></tr></table>
@@ -30,7 +30,8 @@
 </div>
 <div class="qtot"><span>합계 금액 (부가세 포함)</span><span>일금 일백칠십오만사천오백 원정 (₩1,754,500)</span></div>
 <table class="items">
-<tr><th>품 명</th><th>규 격 <span class="qk">2</span></th><th>수량</th><th>단위</th><th>단 가</th><th>금 액</th><th>비 고</th></tr>
+<thead><tr><th scope="col">품 명</th><th scope="col">규 격 <span class="qk">2</span></th><th scope="col">수량</th><th scope="col">단위</th><th scope="col">단 가</th><th scope="col">금 액</th><th scope="col">비 고</th></tr></thead>
+<tbody>
 <tr><td>매입 콘센트 (접지형)</td><td>2구 16A 250V</td><td class="qc">6</td><td class="qc">개</td><td class="qn">12,000</td><td class="qn">72,000</td><td>같은 자리 교체</td></tr>
 <tr><td>욕실 방적형 콘센트</td><td>접지·덮개형</td><td class="qc">1</td><td class="qc">개</td><td class="qn">25,000</td><td class="qn">25,000</td><td></td></tr>
 <tr><td>누전차단기 (분기)</td><td>20A 30mA 2P</td><td class="qc">1</td><td class="qc">개</td><td class="qn">38,000</td><td class="qn">38,000</td><td>인덕션 전용</td></tr>
@@ -41,6 +42,7 @@
 <tr class="qbad"><td><span class="qk">5</span>기타 공사</td><td></td><td class="qc">1</td><td class="qc">식</td><td class="qn">150,000</td><td class="qn">150,000</td><td>내용 확인 필요</td></tr>
 <tr class="qsum"><td colspan="5">공급가액</td><td class="qn">1,595,000</td><td></td></tr>
 <tr class="qsum"><td colspan="5">부가세 (10%)</td><td class="qn">159,500</td><td></td></tr><tr class="qsum"><td colspan="5">합 계</td><td class="qn">1,754,500</td><td></td></tr>
+</tbody>
 </table>
 <div class="qnote"><b>하자 보수</b><span class="qk">4</span>준공일로부터 1년 · <b>대금 지급</b> 착수 30% / 완료 후 검수 뒤 70% · <b>특기 사항</b> 도배·타일 손상 시 원상 복구, 폐자재 처리 포함</div>
 <div class="qex">※ 이해를 돕기 위한 예시 양식이며, 금액은 실제 시세가 아니에요.</div>

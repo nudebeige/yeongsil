@@ -8,14 +8,27 @@ export default function NoteScripts({ id }: { id: string }) {
     const hints: HTMLElement[] = [];
     const off: (() => void)[] = [];
     for (const b of boxes) {
-      const p = document.createElement("p");
-      p.className = "zoomhint";
-      p.textContent = "그림을 누르면 크게 볼 수 있어요";
-      b.after(p);
-      hints.push(p);
-      const f = () => b.classList.toggle("zoom");
-      b.addEventListener("click", f);
-      off.push(() => b.removeEventListener("click", f));
+      // 키보드로도 쓸 수 있게 진짜 버튼으로 확대를 켜고 끔 (aria-pressed 로 상태 알림)
+      const title = b.closest("section")?.querySelector(".sec-h")?.textContent?.trim() || "그림";
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "zoomhint";
+      btn.setAttribute("aria-pressed", "false");
+      btn.textContent = "그림 크게 보기";
+      b.after(btn);
+      hints.push(btn);
+      const set = (on: boolean) => {
+        b.classList.toggle("zoom", on);
+        btn.setAttribute("aria-pressed", String(on));
+        // 크게 볼 때만 옆으로 밀 수 있으니 그때만 키보드로 스크롤할 수 있는 영역으로 만듦
+        if (on) { b.tabIndex = 0; b.setAttribute("role", "region"); b.setAttribute("aria-label", title + " (옆으로 밀어서 보기)"); }
+        else { b.removeAttribute("tabindex"); b.removeAttribute("role"); b.removeAttribute("aria-label"); }
+      };
+      const onBtn = () => set(btn.getAttribute("aria-pressed") !== "true");
+      const onBox = (e: Event) => { if (e.target === b || !(e.target as HTMLElement).closest("a,button")) set(!b.classList.contains("zoom")); };
+      btn.addEventListener("click", onBtn);
+      b.addEventListener("click", onBox);
+      off.push(() => { btn.removeEventListener("click", onBtn); b.removeEventListener("click", onBox); set(false); });
     }
     if (id === "5-2") off.push(messageBuilder());
     return () => { hints.forEach(h => h.remove()); off.forEach(f => f()); };
