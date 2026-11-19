@@ -41,8 +41,14 @@
   .blk h2{font-size:22px;font-weight:900;letter-spacing:-.02em}
   .blk .sub{color:var(--muted);font-size:14px;margin:4px 0 0}
 
-  .circles{display:flex;gap:18px;overflow-x:auto;padding:20px 2px 6px;scrollbar-width:thin}
-  .circ{flex:0 0 auto;width:92px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+  /* 숨는 동그라미가 없도록 줄을 바꿔 모두 보여 줌 (가로 스크롤 쓰지 않음) */
+  .circles{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:18px 12px;padding:20px 0 6px}
+  .circ{min-width:0;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+  @media (max-width:420px){
+    .circles{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 6px}
+    .circ .o{width:66px;height:66px;font-size:12.5px}
+    .circ .t{font-size:11.5px}
+  }
   .circ .o{width:78px;height:78px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:14px;line-height:1.2;border:1.5px solid var(--ink);background:var(--bg);color:var(--ink);padding:6px}
   .circ.dark .o{background:var(--ink);color:var(--bg)}
   .circ.red .o{background:var(--red);border-color:var(--red);color:#fff}
@@ -96,4 +102,14 @@
   nav::-webkit-scrollbar{display:none}
   nav a{white-space:nowrap;padding-block:4px}
   nav a.tb-hot{color:var(--tb-red)}
+  /* 좁은 화면: 부 바로가기는 첫 화면 '처음부터 차근차근' 목록에 있으니 숨기고, 꼭 필요한 셋만 남김 */
+  @media (max-width:760px){
+    .bar{gap:14px}
+    nav{gap:14px}
+    nav a.tb-part{display:none}
+  }
+  @media (max-width:340px){
+    .logo small{display:none}
+    nav{font-size:13px;gap:10px}
+  }
 }
