@@ -1,0 +1,38 @@
+<style>
+.npl-wrap{display:flex;flex-direction:column;gap:12px}
+.npl{max-width:420px;width:100%;margin:0 auto;border-radius:10px;padding:14px 16px;color:#1d2623;font-family:"Noto Sans KR","Malgun Gothic",sans-serif;font-size:13px;line-height:1.45;
+  background:linear-gradient(135deg,#f3f5f6 0%,#d9dee2 45%,#eef1f3 60%,#c9cfd4 100%);border:1px solid #aab2b8;box-shadow:inset 0 1px 0 #fff,0 2px 6px rgb(0 0 0 / .12)}
+.npl-top{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1.5px solid #1d2623;padding-bottom:6px;margin-bottom:6px}
+.npl-top b{font-size:15px;font-weight:900;letter-spacing:.04em}
+.npl-kc{display:inline-grid;place-items:center;width:34px;height:34px;border:2px solid #1d2623;border-radius:50%;font-weight:900;font-size:12px;flex:none}
+.npl table{border-collapse:collapse;width:100%}
+.npl th{text-align:left;font-weight:700;padding:3px 8px 3px 0;white-space:nowrap;width:5.5em;vertical-align:top}
+.npl td{padding:3px 0;font-variant-numeric:tabular-nums}
+.npl tr.npl-hit td,.npl tr.npl-hit th{background:rgb(240 176 44 / .28)}
+.npl-foot{margin-top:6px;font-size:11px;color:#4b5559}
+.npl-k{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#e0362c;color:#fff;font-size:11px;font-weight:900;margin-right:4px;vertical-align:-3px}
+.npl-ex{font-size:11px;color:var(--muted);text-align:center}
+.npl-legend{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;font-size:14px}
+.npl-legend li{display:grid;grid-template-columns:22px 1fr;gap:6px;align-items:start}
+.npl-legend .npl-k{margin:2px 0 0}
+</style>
+<div class="npl-wrap">
+<div class="npl" role="img" aria-label="전기히터 뒷면 명판 예시. 정격전압 220볼트, 소비전력 2000와트">
+<div class="npl-top"><b>전기히터</b><span class="npl-kc">KC</span></div>
+<table>
+<tr><th>모델명</th><td>EH-○○○○</td></tr>
+<tr class="npl-hit"><th><span class="npl-k">2</span>정격전압</th><td>220V~ 60Hz</td></tr>
+<tr class="npl-hit"><th><span class="npl-k">1</span>소비전력</th><td><b>2,000W</b></td></tr>
+<tr><th>제조연월</th><td>20○○년 ○월</td></tr>
+<tr><th>제조자</th><td>○○전자 (예시)</td></tr>
+<tr><th><span class="npl-k">3</span>안전인증</th><td>KC 인증번호 ○○○○○-○○○○</td></tr>
+</table>
+<div class="npl-foot">물기 있는 곳에서 사용하지 마십시오. 사용하지 않을 때는 플러그를 뽑아 주십시오.</div>
+</div>
+<p class="npl-ex">※ 이해를 돕기 위한 예시 명판이에요. 제품마다 칸 이름과 위치가 조금씩 달라요.</p>
+<ul class="npl-legend">
+<li><span class="npl-k">1</span><span><b>소비전력 (W)</b> · 같은 갈래에서 같이 쓰는 기기끼리 이 숫자를 더해요. 4,000W를 넘으면 나눠 써요.</span></li>
+<li><span class="npl-k">2</span><span><b>정격전압</b> · 220V가 맞는지 봐요. 110V라고 적혀 있으면 변압기 없이 꽂지 않아요(1-2쪽).</span></li>
+<li><span class="npl-k">3</span><span><b>KC 표시</b> · 안전 인증을 받은 제품이라는 뜻이에요. 멀티탭·충전기는 꼭 확인해요.</span></li>
+</ul>
+</div>

@@ -26,7 +26,7 @@ Object.assign(P["5-8"], { svgH: "관리실이 우리 집을 바로 아는 이유
 Object.assign(P["5-9"], { svgH: "이 순서로, 세 가지만", svg: sv("g59") });
 Object.assign(P["3-10"], { rawH: "좋은 견적서는 이렇게 생겼어요 (내역서형)", raw: r("quote.html"), svgH: "견적서 받으면 이것만", svg: sv("g310") });
 P["3-10"].water = "같은 공사인데 견적이 두 배씩 차이 나는 건 견적 방식이 달라서인 경우가 많아요. '총 얼마'로 뭉친 견적(일식)보다, 자재와 인건비를 줄마다 나눈 견적(내역서형)이 비교하기도 따지기도 쉬워요.";
-for (const f of ["patch.js", "patch2.js", "patch3.js", "patch4.js", "patch5.js", "patch6.js"]) load(f)(P);
+for (const f of ["patch.js", "patch2.js", "patch3.js", "patch4.js", "patch5.js", "patch6.js", "patch7.js"]) load(f)(P);
 
 // ── 글(article) 나누기
 const splitArticles = html => (html.match(/<article[\s\S]*?<\/article>/g) || []);
@@ -82,6 +82,7 @@ const extra = `
 .cases li b{font-size:15px}
 .cases li span{color:var(--muted)}
 .np a{color:inherit}
+.np .scr{position:absolute;transform:translate(-50%,-50%);font-family:Consolas,"SF Mono",monospace;font-weight:700;color:#1d2623;font-size:clamp(12px,3.4vw,22px);letter-spacing:.02em;white-space:nowrap;pointer-events:none}
 .pager{display:flex;justify-content:space-between;gap:12px;font-size:14px;font-weight:700;padding-block:4px 8px}
 .pager a{text-decoration:none;color:var(--green)}
 .pager a:last-child{text-align:right}

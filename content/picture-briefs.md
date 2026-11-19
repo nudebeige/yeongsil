@@ -1,28 +1,153 @@
 # AI 실물 그림 구상서
 
-원칙
-- 글자·숫자 없이 만든다(`no text, no letters, no numbers, blank LCD`). 한글 이름표·번호·화면 숫자는 HTML로 얹는다.
-- 한국 집 기준: 콘센트는 둥근 구멍 2개 + 양옆 금속 접지 클립(Type F), 220V.
-- 손이 나오면 손가락은 침의 보호 턱 뒤, 마른 손. 위험한 자세(맨손으로 금속 침 잡기)는 그리지 않는다.
-- 기호가 중요한 부분(다이얼 기호, 단자 이름)은 AI가 틀리기 쉬워서 직접 그린 그림(svg)을 함께 둔다.
-- 만든 그림은 `public/img/<번호>.webp`로 저장하고, 번호 위치(%)를 쪽 데이터에 적는다.
+## 원칙
+- 글자·숫자 없이 만든다. 프롬프트 끝에 항상 `No text, no letters, no numbers.` 화면 숫자·이름표·번호는 HTML로 얹는다(`screens`, `badges`, `pins`).
+- 한국 집 기준: 콘센트는 둥근 구멍 2개 + 양옆 금속 접지 클립(Type F), 220V, 아파트 실내.
+- 사람 손이 나오면 마른 손, 침은 보호 턱 뒤. 위험한 자세는 그리지 않는다.
+- 기호·글자가 핵심인 것(다이얼 기호, 명판, 고지서)은 AI가 틀리므로 **직접 그림이나 HTML 양식**으로 만든다.
+- 저장: `public/img/<그림번호>.webp` → 쪽 데이터의 `img`(맨 위 큰 그림) 또는 `photos`(순서 아래 추가 그림)에 넣고 번호 위치(%)를 적는다.
+- 하루 무료 한도는 쓸 만한 그림 5~6장 정도. 아래 '날짜 묶음' 순서로 만든다.
 
-## 2-2 멀티테스터 (3장)
+## 날짜 묶음 (AI 29장 + HTML 양식 2장)
+| 묶음 | 그림 |
+|---|---|
+| 1일차 (장비) | G13-1, G13-2, G13-3, G12 검전기, G14 클램프미터, G15 메거 |
+| 2일차 (1부) | G08 접지 콘센트, G10 문어발 멀티탭, G11 옛·새 분전반, G42 아이·반려동물, G17 벽 속 주름관 |
+| 3일차 (공사) | G18 콘센트 4종, G20 콘센트 교체, G22 색온도, G23 간접조명, G24 필름 난방, G27 인덕션 전용 |
+| 4일차 (점검·보호) | G43 안전점검, G44 전기차 충전, G45 베란다 태양광, G29 T 버튼, G32 SPD |
+| 5일차 (고장) | G35 콘센트 하나, G36 깜빡임, G37 전자레인지, G38 단자함, G39 그을린 콘센트, G40 감지기와 연기, G46 천장 누수 |
+| 한도 없이 | H1 가전 명판(1-7, HTML), H2 전기요금 고지서(4-6, HTML) |
+| 선택 | 2-5 전선 단면, 4-1 차단기 앞면 (직접 그린 그림이 이미 있음) |
 
-### G13-1 부품 이름 — 쪽 맨 위 큰 그림
-- 구도: 흰 바탕 위에 노란 테두리 + 검은 몸체의 손바닥만 한 디지털 멀티테스터를 정면에서. 위 화면, 가운데 큰 원형 다이얼, 아래 단자 3개. 검은 선은 가운데 단자, 빨간 선은 오른쪽 단자에 꽂혀 테스터 아래로 늘어짐.
-- 프롬프트: `Product photo, front view of a handheld digital multimeter with yellow rubber bumper and black body on a plain white background, blank LCD screen at top, large round rotary dial in the center, three input jacks at the bottom, black test lead plugged into the middle jack and red test lead plugged into the right jack, probes lying below, soft studio light. No text, no letters, no numbers, no symbols, blank screen.`
-- 얹을 것: ① 화면 ② 다이얼 ③ COM(검정) ④ VΩ(빨강) ⑤ 10A(쓰지 않기, 빨간 X) — 화면 자리에 HTML로 `221.4 V` 표시.
+---
 
-### G13-2 콘센트 전압 재는 장면 — '콘센트 전압 재기' 순서 옆
-- 구도: 흰 벽의 한국식 2구 콘센트에 빨강·검정 침이 각각 한 구멍씩 꽂혀 있고, 마른 손이 침의 손잡이(보호 턱 뒤)를 잡고 있음. 옆 선반에 테스터.
-- 프롬프트: `Realistic close-up photo, a white Korean wall socket with two round holes and metal grounding clips (Type F), red and black multimeter probes inserted into the two holes, a dry hand holding the probe handles behind the finger guards, a handheld multimeter with blank screen on a shelf beside it, soft daylight. No text, no letters, no numbers.`
-- 얹을 것: 테스터 화면 자리에 `221V`, 침에 "검정 먼저", "빨강 다음" 라벨.
+## 1일차 — 장비
 
-### G13-3 건전지·전선 끊김 — '집에서 이렇게 써요' 옆 (2컷)
-- 왼쪽: AA 건전지 양 끝에 빨강(+)·검정(-) 침. 오른쪽: 콘센트에서 뽑아 둔 연장선(릴선) 플러그와 끝 콘센트에 침을 대는 모습.
-- 프롬프트: `Split image, two halves. Left: red and black multimeter probes touching the two ends of an AA battery on a wooden table. Right: multimeter probes touching the plug pins of an unplugged white extension cord on a wooden table. Realistic, soft light. No text, no letters, no numbers.`
-- 얹을 것: 왼쪽 "1.6V = 새 것 / 1.2V 아래 = 교체", 오른쪽 "삐- = 이어짐".
+### G13-1 · 2-2 멀티테스터 부품 이름 (img, 맨 위)
+`Product photo, front view of a handheld digital multimeter with yellow rubber bumper and black body on a plain white background, blank empty LCD screen at top, large round black rotary dial in the center, three round input jacks in a row at the bottom, black test lead plugged into the middle jack and red test lead plugged into the right jack, the left jack empty, probes lying below, soft studio light. No text, no letters, no numbers, no symbols, completely blank screen.` (4:3)
+얹기: screens 화면 `221.4 V` · badges ①화면 ②다이얼 ③COM ④VΩ ⑤10A(hot, "쓰지 않기")
 
-## 나머지 쪽
-- `memory`의 영실 그림 목록 순서대로 같은 형식(구도 · 프롬프트 · 얹을 것)으로 이 문서에 이어서 적는다.
+### G13-2 · 2-2 콘센트 재는 장면 (photos, 순서 아래)
+`Realistic close-up photo of a white Korean wall socket with two round holes and metal grounding clips on the sides (Type F schuko), a red multimeter probe in one hole and a black probe in the other, a dry hand holding the probe handles behind the finger guards, a yellow digital multimeter with blank screen on a shelf beside it, soft daylight, white wall. No text, no letters, no numbers.` (4:3)
+얹기: screens `221V` · pins "검정 먼저", "빨강 다음"
+
+### G13-3 · 2-2 건전지·릴선 두 컷 (photos)
+`Split image with two halves side by side, realistic photo on a wooden table. Left: red and black multimeter probe tips touching the two ends of a single AA battery. Right: red and black probe tips touching the two metal pins of the plug of an unplugged white extension cord. Soft daylight. No text, no letters, no numbers.` (16:9)
+얹기: 왼쪽 pin "1.6V = 새 것", 오른쪽 pin "삐- = 이어짐"
+
+### G12 · 2-1 검전기 (img)
+`Realistic close-up photo of a hand holding a pen-shaped non-contact voltage tester, its tip touching a white Korean Type F wall socket hole, the tester tip glowing red, soft light, white wall. No text, no letters, no numbers.` (4:3)
+얹기: badges ①끝 불빛 ②손잡이(손은 여기) · 직접 그린 '세 번 확인' 그림은 그대로 아래에
+
+### G14 · 2-3 클램프미터 (img)
+`Realistic photo of a hand holding a digital clamp meter whose open jaw is closed around a single insulated wire coming out of a small plug-in line splitter adapter plugged into a wall socket, blank screen, soft light. No text, no letters, no numbers.` (4:3)
+얹기: screens `3.5 A` · badges ①집게 ②한 가닥 ③라인 분리기
+
+### G15 · 2-4 메거 측정 (img)
+`Realistic photo of an electrician's gloved hands using a handheld insulation resistance tester (megger) with test leads clipped to the terminals of a breaker in an open home distribution panel, blank screen, soft light. No text, no letters, no numbers.` (4:3)
+얹기: screens `500 MΩ` · badges ①측정기 ②차단기 단자 · 캡션 "기사님이 하는 측정이에요"
+
+## 2일차 — 1부
+
+### G08 · 1-6 접지 콘센트 비교 (img)
+`Realistic product photo on light grey background, two wall sockets side by side: left a modern white Type F socket with two round holes and shiny metal grounding clips on the left and right edges; right an old yellowed socket with two round holes and no metal clips. Soft even light. No text, no letters, no numbers.` (16:9)
+얹기: badges ①접지 클립 ②클립 없음(hot) · pins "접지형", "옛날형"
+
+### G10 · 1-8 문어발 멀티탭 (img)
+`Realistic photo on a wooden floor of an overloaded white power strip with a second power strip plugged into it, plugs of an electric heater, hair dryer and kettle crammed in, tangled cords, one socket area slightly scorched brown. Warm indoor light. No text, no letters, no numbers.` (16:9)
+얹기: badges ①멀티탭에 멀티탭 ②열 내는 기기 몰림 ③그을음(hot)
+
+### G11 · 1-9 옛 분전반 · 새 분전반 (img)
+`Two electrical breaker panels side by side on a wall, realistic photo. Left: an old yellowed small panel with old switches, aged wires, dusty. Right: a clean modern white panel with door open showing one large main breaker with a small blue test button and eight small white breakers in a row. Even light. No text, no letters, no numbers, no labels.` (16:9)
+얹기: pins "옛 분전반", "새 분전반" · badges ①T 버튼 없음 ②T 버튼
+
+### G42 · 1-10 아이·반려동물 (img)
+`Realistic home photo, a white wall socket with a clear plastic child safety plug cover inserted, beside it on the floor a puppy sniffing a cable that runs inside a white plastic cable cover channel along the wall, soft daylight. No text, no letters, no numbers.` (4:3)
+얹기: badges ①안전 덮개 ②전선 보호관
+
+### G17 · 2-6 벽 속 주름관 (img)
+`Realistic construction-site photo of an opened interior wall during apartment renovation, an orange corrugated conduit running vertically down to a wall outlet box, grey corrugated conduits along the ceiling, a measuring tape held against the wall. No text, no letters, no numbers.` (4:3)
+얹기: badges ①주황 주름관(CD관) ②회색 주름관 ③콘센트 박스 · pin "줄자 대고 사진"
+
+## 3일차 — 공사
+
+### G18 · 2-7 콘센트 4종 (img)
+`Realistic product photo, four wall sockets in a row on light grey background: a standard white Type F grounded socket, a bathroom socket with a hinged splash-proof lid, a floor pop-up socket, a socket with USB ports. Even light. No text, no letters, no numbers.` (16:9)
+얹기: badges ①접지형 ②욕실 방적형 ③바닥 매입형 ④USB 겸용
+
+### G20 · 3-1 콘센트 교체 (img)
+`Realistic close-up photo, a wall socket pulled slightly out of its wall box with the cover removed, showing brown, blue and green-yellow wires each connected to its own terminal, a hand holding a screwdriver and a smartphone taking a photo of the wiring, soft light. No text, no letters, no numbers.` (4:3)
+얹기: pins "먼저 사진", badges ①갈색 ②파랑 ③초록노랑
+⚠ 선 색이 섞여 이어진 그림(갈색 선이 중간에 파랑이 되는 등)이 나오면 버린다.
+
+### G22 · 3-3 색온도 (img)
+`Realistic interior photo of the same living room split vertically in half: left half lit with warm yellow 3000K light, right half lit with cool white 5000K light, same sofa and table continuing across. No text, no letters, no numbers.` (16:9)
+얹기: pins "3000K 노란빛", "5000K 하얀빛"
+
+### G23 · 3-4 간접조명 (img)
+`Realistic interior photo of a modern Korean apartment living room at night with a recessed cove ceiling where hidden LED strips glow softly, a small square access hatch visible in the ceiling. No text, no letters, no numbers.` (16:9)
+얹기: badges ①LED 바 숨은 자리 ②점검구
+
+### G24 · 3-5 필름 난방 (img)
+`Realistic construction photo of a room floor during installation of electric heating film: thin black heating film sheets laid on insulation board, wires connected at the edges, a small floor temperature sensor, before flooring is installed. No text, no letters, no numbers.` (16:9)
+얹기: badges ①필름 ②가장자리 배선 ③온도 센서
+
+### G27 · 3-8 인덕션 전용 콘센트 (img)
+`Realistic photo of a modern Korean kitchen, a built-in induction cooktop on the counter, below it inside the open cabinet a dedicated grounded wall socket with a single thick plug plugged in, soft light. No text, no letters, no numbers.` (4:3)
+얹기: badges ①인덕션 ②전용 콘센트 · pin "멀티탭 ✕"
+
+## 4일차 — 점검·보호
+
+### G43 · 3-9 안전점검 (img)
+`Realistic photo of an electrical safety inspector in a work vest showing an ID card at the front door of a Korean apartment, a homeowner holding the door, a toolbag on the floor. Faces turned away or out of focus. No text, no letters, no numbers.` (4:3)
+얹기: pin "신분증 확인"
+
+### G44 · 3-11 전기차 충전 (img)
+`Split image. Left: an electric car in a home garage charging through a portable charging cable plugged directly into a dedicated weatherproof grounded wall socket with a lid. Right: the same charging cable plugged into a coiled extension reel, with a large red X drawn over it. No text, no letters, no numbers.` (16:9)
+얹기: pins "전용 콘센트 ○", "릴선 ✕" (빨간 X가 AI로 안 나오면 HTML로 그린다)
+
+### G45 · 3-12 베란다 태양광 (img)
+`Realistic photo of a small solar panel firmly mounted with metal brackets on the outside railing of a Korean apartment balcony, a short cable running inside to a small inverter box, blue sky. No text, no letters, no numbers.` (4:3)
+얹기: badges ①고정 브래킷 ②선 정리 ③인버터
+
+### G29 · 4-2 T 버튼 (img)
+`Realistic close-up photo of a finger pressing a small blue test button on a white residual current circuit breaker in an open home distribution panel, soft light. No text, no letters, no numbers.` (4:3)
+얹기: badges ①T 버튼 ②레버 · pin "누르면 '탁'"
+
+### G32 · 4-5 SPD (img)
+`Realistic close-up photo inside an open home distribution panel, a surge protective device module with a small green status window mounted next to the breakers, soft light. No text, no letters, no numbers.` (4:3)
+얹기: badges ①SPD ②상태 창(초록 = 정상)
+
+## 5일차 — 고장
+
+### G35 · 5-3 콘센트 하나만 (img)
+`Realistic home photo, a desk lamp plugged into a white wall socket but not lit, a hand touching a pen-shaped voltage tester to the socket, the other socket on the same wall with a lit lamp. No text, no letters, no numbers.` (16:9)
+얹기: pins "안 켜짐", "옆은 켜짐"
+
+### G36 · 5-4 깜빡이는 조명 (img)
+`Realistic photo of a living room ceiling with several round LED ceiling lights, one of them dim and flickering while the others are bright, a wall light switch in the foreground. No text, no letters, no numbers.` (16:9)
+얹기: badges ①한 등만 ②스위치
+
+### G37 · 5-5 전자레인지 켜면 (img)
+`Two-panel realistic photo. Left: a hand pressing the start button of a microwave oven in a kitchen. Right: a home distribution panel with the large main breaker lever down in the off position. No text, no letters, no numbers.` (16:9)
+얹기: pins "켜는 순간", "큰 차단기 탁"
+
+### G38 · 5-6 통신 단자함 (img)
+`Realistic photo of an open small network cabinet in a Korean apartment entrance closet, showing a modem and a Wi-Fi router with green and orange indicator lights, cables neatly connected. No text, no letters, no numbers.` (4:3)
+얹기: badges ①모뎀 ②공유기 ③불빛
+
+### G39 · 5-7 그을린 콘센트 (img)
+`Realistic close-up photo of a white wall socket with brown scorch marks around one hole and a partially melted plug, slight smoke stain on the wallpaper. No text, no letters, no numbers.` (4:3)
+얹기: badges ①그을음(hot) ②녹은 플러그(hot)
+
+### G40 · 5-8 감지기와 연기 (img)
+`Realistic photo of a white round smoke detector on a kitchen ceiling with a small red LED, light cooking smoke rising from a frying pan below toward it. No text, no letters, no numbers.` (4:3)
+얹기: badges ①감지기 ②요리 연기
+
+### G46 · 5-10 천장 누수 (img)
+`Realistic photo of a ceiling light fixture in a Korean apartment with water dripping from it and a water stain spreading on the ceiling, a bucket on the floor below. No text, no letters, no numbers.` (4:3)
+얹기: badges ①물 떨어지는 등(hot) · pin "그 갈래 차단기부터"
+
+## 한도 없이 만드는 HTML 양식
+- H1 · 1-7 가전 명판: 은색 스티커 모양 표(모델명, 정격전압 220V~ 60Hz, **소비전력 1,500W**, 제조연월) — 소비전력 칸에 번호.
+- H2 · 4-6 전기요금 고지서: 종이 고지서 모양(사용기간, **계약전력 3kW**, 사용량 kWh, 청구금액) — 계약전력 칸에 번호. 금액은 예시 표시.

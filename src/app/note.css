@@ -133,6 +133,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid 
 .cases li b{font-size:15px}
 .cases li span{color:var(--muted)}
 .np a{color:inherit}
+.np .scr{position:absolute;transform:translate(-50%,-50%);font-family:Consolas,"SF Mono",monospace;font-weight:700;color:#1d2623;font-size:clamp(12px,3.4vw,22px);letter-spacing:.02em;white-space:nowrap;pointer-events:none}
 .pager{display:flex;justify-content:space-between;gap:12px;font-size:14px;font-weight:700;padding-block:4px 8px}
 .pager a{text-decoration:none;color:var(--green)}
 .pager a:last-child{text-align:right}

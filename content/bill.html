@@ -1,0 +1,50 @@
+<style>
+.bil-hint{font-size:12.5px;color:var(--muted);margin:0 0 6px}
+@media (min-width:600px){.bil-hint{display:none}}
+.bil-wrap{overflow-x:auto;margin:0 -4px;padding:4px}
+.bil{min-width:460px;background:#fffefb;color:#1d2623;border:1px solid #cfc9bc;border-top:6px solid #2763a8;border-radius:4px;padding:16px 16px 12px;font-family:"Noto Sans KR","Malgun Gothic",sans-serif;font-size:12.5px;line-height:1.45;box-shadow:0 2px 8px rgb(0 0 0 / .08)}
+.bil-h{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;margin-bottom:10px}
+.bil-h b{font-size:18px;font-weight:900;letter-spacing:.08em}
+.bil-h span{font-size:11.5px;color:#5d6a66}
+.bil table{border-collapse:collapse;width:100%}
+.bil th,.bil td{border:1px solid #9aa3a8;padding:5px 7px;vertical-align:middle}
+.bil th{background:#eef2f6;font-weight:700;white-space:nowrap;text-align:left}
+.bil td.bil-n{text-align:right;font-variant-numeric:tabular-nums}
+.bil .bil-hit{background:rgb(240 176 44 / .28)}
+.bil-sum{margin-top:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;border:2px solid #1d2623;padding:8px 12px;font-weight:900;font-size:15px}
+.bil-two{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.bil-k{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#e0362c;color:#fff;font-size:11px;font-weight:900;margin-right:4px;vertical-align:-3px}
+.bil-ex{font-size:11px;color:#8a8478;text-align:right;margin-top:6px}
+.bil-legend{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-direction:column;gap:7px;font-size:14px}
+.bil-legend li{display:grid;grid-template-columns:22px 1fr;gap:6px;align-items:start}
+.bil-legend .bil-k{margin:2px 0 0}
+</style>
+<p class="bil-hint">← 실제 고지서처럼 옆으로 밀어서 보세요 →</p>
+<div class="bil-wrap"><div class="bil" role="img" aria-label="전기요금 청구서 예시. 계약전력 3킬로와트, 이번 달 사용량 312킬로와트시">
+<div class="bil-h"><b>전기요금 청구서</b><span>20○○년 ○월분 · 예시</span></div>
+<div class="bil-two">
+<table>
+<tr><th>고객번호</th><td>○○-○○○○-○○○○</td></tr>
+<tr><th>사용 장소</th><td>○○아파트 ○동 ○호</td></tr>
+<tr><th>계약 종별</th><td>주택용 (저압)</td></tr>
+<tr class="bil-hit"><th><span class="bil-k">1</span>계약전력</th><td><b>3 kW</b></td></tr>
+</table>
+<table>
+<tr><th>사용 기간</th><td>○월 ○일 ~ ○월 ○일</td></tr>
+<tr><th>당월 지침</th><td class="bil-n">24,812</td></tr>
+<tr><th>전월 지침</th><td class="bil-n">24,500</td></tr>
+<tr class="bil-hit"><th><span class="bil-k">2</span>사용량</th><td class="bil-n"><b>312 kWh</b></td></tr>
+</table>
+</div>
+<table style="margin-top:10px">
+<tr><th>기본요금</th><td class="bil-n">○,○○○원</td><th>전력량요금</th><td class="bil-n">○○,○○○원</td></tr>
+<tr><th>부가가치세 등</th><td class="bil-n">○,○○○원</td><th><span class="bil-k">3</span>지난해 같은 달</th><td class="bil-n">289 kWh</td></tr>
+</table>
+<div class="bil-sum"><span>청구 금액</span><span>○○,○○○원</span></div>
+<div class="bil-ex">※ 이해를 돕기 위한 예시예요. 실제 고지서는 칸 이름·위치가 다를 수 있고, 금액은 넣지 않았어요.</div>
+</div></div>
+<ul class="bil-legend">
+<li><span class="bil-k">1</span><span><b>계약전력</b> · 우리 집이 한 번에 쓸 수 있는 최대 크기예요. 큰 가전을 늘리기 전에 이 숫자부터 봐요.</span></li>
+<li><span class="bil-k">2</span><span><b>사용량 (kWh)</b> · 이번 달 계량기 숫자에서 지난달 숫자를 뺀 값이에요. 요금은 이 숫자로 계산돼요(1-7쪽).</span></li>
+<li><span class="bil-k">3</span><span><b>지난해 같은 달</b> · 갑자기 크게 늘었다면 오래 켜 둔 기기나 누전을 의심해 볼 수 있어요.</span></li>
+</ul>
