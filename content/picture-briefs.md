@@ -8,6 +8,24 @@
 - 저장: `public/img/<그림번호>.webp` → 쪽 데이터의 `img`(맨 위 큰 그림) 또는 `photos`(순서 아래 추가 그림)에 넣고 번호 위치(%)를 적는다.
 - 하루 무료 한도는 쓸 만한 그림 5~6장 정도. 아래 '날짜 묶음' 순서로 만든다.
 
+## 진행 기록
+- 2026-11-20 (8번 시도, 한도 남음 불확실): **완료** G13-1(2-2 부품, `public/img/g13-1.webp`), G12(2-1 검전기, `g12.webp`) — `content/patch8.js`.
+  한도: 8번째 시도 뒤 막힘 → 하루 약 8번으로 계획.
+  다음 날 고친 프롬프트(아래 각 그림 항목의 원래 프롬프트 대신 이것부터):
+  - G13-2: `Realistic photo, three-quarter side angle view of a white European schuko wall socket on a white wall. Two thin metal test probes, one red and one black, are each pushed into one of the two round holes so that the metal tips disappear inside the holes, the red and black plastic probe handles sticking out at an angle, held at the grips by a dry hand. No multimeter in the frame. Soft daylight, shallow depth of field. No text, no letters, no numbers.`
+  - G13-3: `Split image with two equal halves, realistic photo on a light wooden table. Left half: a single AA battery lying flat, a red test probe tip pressing on its positive end button and a black test probe tip pressing on its flat negative end. Right half: the round European plug (two round metal pins, schuko style) of an unplugged white extension cord lying on the table, a red test probe tip touching one round pin and a black test probe tip touching the other round pin. Soft daylight. No text, no letters, no numbers.`
+  - G14: `Realistic product photo on a white desk: a handheld digital clamp meter with a blank screen, its curved jaw fully closed in a ring around one single white insulated power cord. The cord runs from a small white line splitter adapter that is plugged into a white power strip. All wires are fully insulated, no bare copper visible. A hand holds the meter body. Soft daylight. No text, no letters, no numbers.`
+  - G15: `Realistic close-up photo inside an open white home electrical distribution panel: a row of small white circuit breakers with their front cover in place, a yellow handheld insulation resistance tester with a blank screen resting on the panel ledge, its red and black test leads ending in small alligator clips that are clipped onto the screw terminals at the top of one breaker. No people, no hands. Soft indoor light. No text, no letters, no numbers.`
+  **다시 할 것(이유)** G13-2(침이 구멍이 아닌 면·가운데 나사에 닿음 ×2) → 다음엔 "probe tips inside holes" 대신 콘센트를 옆에서 비스듬히 찍는 구도로. G13-3(미국식 납작 플러그) → "round-pin European plug" 명시. G14(턱이 열리고 맨 전선이 나옴) → "jaw fully closed around one insulated cord, no bare wire". G15(손 세 개, 집게가 단자에 안 물림) → 손 빼고 "only the tester and clips attached to breaker screws".
+
+## 참고 인포그래픽에서 가져올 구도 (2026-11-20)
+사용자가 보여 준 「분전반의 이해」「배전반의 이해」「접지 플러그의 이해」「누전 vs 합선」「콘센트의 구조」「일반 멀티탭 vs 서지보호 멀티탭」 카드뉴스. 남이 만든 이미지라 그대로 쓰거나 따라 그리지 않고, **설명 구도만** 참고한다.
+- 실물 그림 + 부품마다 번호 콜아웃 → 이미 쓰는 방식. 분전반·콘센트에 더 촘촘히.
+- 가로 흐름 띠(한전 → 계량기 → 메인 → 분기 → 콘센트·조명) → 1-1·1-3에 직접 그림(svg)으로 추가 후보.
+- 두 개를 나란히 놓고 차이를 표로(누전 vs 합선, 일반 vs 서지 멀티탭, 접지 vs 비접지 플러그) → 4-3·4-5·1-6에 HTML 비교표 후보.
+- 단면(콘센트를 잘라 속 접점·단자·접지 클립을 보여 주기) → 2-7·3-1에 AI 실물 그림 후보: `Cutaway cross-section illustration of a European schuko wall socket showing internal brass contacts, screw terminals with brown, blue and green-yellow wires, and grounding clips, clean technical render on white, no text`.
+- 맨 아래 빨간 주의 띠 → 이미 주의 박스로 있음.
+
 ## 날짜 묶음 (AI 29장 + HTML 양식 2장)
 | 묶음 | 그림 |
 |---|---|
