@@ -18,6 +18,14 @@
   - G15: `Realistic close-up photo inside an open white home electrical distribution panel: a row of small white circuit breakers with their front cover in place, a yellow handheld insulation resistance tester with a blank screen resting on the panel ledge, its red and black test leads ending in small alligator clips that are clipped onto the screw terminals at the top of one breaker. No people, no hands. Soft indoor light. No text, no letters, no numbers.`
   **다시 할 것(이유)** G13-2(침이 구멍이 아닌 면·가운데 나사에 닿음 ×2) → 다음엔 "probe tips inside holes" 대신 콘센트를 옆에서 비스듬히 찍는 구도로. G13-3(미국식 납작 플러그) → "round-pin European plug" 명시. G14(턱이 열리고 맨 전선이 나옴) → "jaw fully closed around one insulated cord, no bare wire". G15(손 세 개, 집게가 단자에 안 물림) → 손 빼고 "only the tester and clips attached to breaker screws".
 
+## 면접용 일주일 우선순위 (2026-11-21 정함, 11-28까지)
+하루 약 8번 × 7일 ≈ 56번, 건지는 비율 40% 안팎 → 약 20장 목표. 첫 화면 동그라미·증상 쪽부터.
+1. **증상 쪽 (첫 화면에서 바로 눌리는 곳)**: G39 5-7 그을린 콘센트 · G35 5-3 콘센트 하나 · G37 5-5 전자레인지 · G36 5-4 깜빡임 · G40 5-8 감지기 · G46 5-10 천장 누수 · G10 1-8 문어발 멀티탭 · G27 3-8 인덕션 · G43 3-9 안전점검
+2. **기초 쪽**: G08 1-6 접지 콘센트 · G11 1-9 옛·새 분전반 · G29 4-2 T 버튼 · G32 4-5 SPD · G14 2-3 클램프미터 · G15 2-4 메거
+3. **남으면**: G18 · G20 · G22 · G23 · G24 · G17 · G42 · G44 · G45 · G13-2 · G13-3
+- G38(5-6 단자함)은 뺌: 5-11 장비 사진 6장으로 대신하고 5-6에서 링크.
+- Qwen이 막히면 같은 계정 Z-Image-Turbo도 한도를 같이 씀(11-21 둘 다 거절 확인).
+
 ## 참고 인포그래픽에서 가져올 구도 (2026-11-20)
 사용자가 보여 준 「분전반의 이해」「배전반의 이해」「접지 플러그의 이해」「누전 vs 합선」「콘센트의 구조」「일반 멀티탭 vs 서지보호 멀티탭」 카드뉴스. 남이 만든 이미지라 그대로 쓰거나 따라 그리지 않고, **설명 구도만** 참고한다.
 - 실물 그림 + 부품마다 번호 콜아웃 → 이미 쓰는 방식. 분전반·콘센트에 더 촘촘히.

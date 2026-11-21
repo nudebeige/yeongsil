@@ -138,6 +138,7 @@ button.zoomhint{display:inline-flex;align-items:center;gap:6px;align-self:flex-s
 button.zoomhint[aria-pressed="true"]{background:var(--green-soft);border-color:var(--green)}
 button.zoomhint:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
 .scr{position:absolute;transform:translate(-50%,-50%);font-family:Consolas,"SF Mono",monospace;font-weight:700;color:#1d2623;font-size:clamp(12px,3.4vw,22px);letter-spacing:.02em;white-space:nowrap;pointer-events:none}
+.pref{color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:2px}
 .pager{display:flex;justify-content:space-between;gap:12px;font-size:14px;font-weight:700;padding-block:4px 8px}
 .pager a{text-decoration:none;color:var(--green)}
 .pager a:last-child{text-align:right}

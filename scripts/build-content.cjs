@@ -56,6 +56,16 @@ for (const [n, name, arts] of PARTS) for (const a of arts) {
     .replace(/href="#p([0-9]+-[0-9]+)"/g, 'href="/$1"');
   pages.push({ id, part: n, partName: name, title: titleOf(a), html });
 }
+// 글 속 "1-3쪽" 같은 쪽 표시를 링크로 (태그 속성·기존 링크 안·자기 쪽은 건너뜀)
+const allIds = new Set(pages.map(p => p.id));
+for (const pg of pages) {
+  let inA = 0;
+  pg.html = pg.html.split(/(<[^>]+>)/).map(seg => {
+    if (seg.startsWith("<")) { if (/^<a[\s>]/i.test(seg)) inA++; else if (/^<\/a>/i.test(seg)) inA = Math.max(0, inA - 1); return seg; }
+    if (inA) return seg;
+    return seg.replace(/([0-9]+-[0-9]+)쪽/g, (m, id) => allIds.has(id) && id !== pg.id ? `<a class="pref" href="/${id}">${m}</a>` : m);
+  }).join("");
+}
 fs.mkdirSync(OUT, { recursive: true });
 fs.writeFileSync(path.join(OUT, "pages.json"), JSON.stringify(pages, null, 1));
 
@@ -87,6 +97,7 @@ button.zoomhint{display:inline-flex;align-items:center;gap:6px;align-self:flex-s
 button.zoomhint[aria-pressed="true"]{background:var(--green-soft);border-color:var(--green)}
 button.zoomhint:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
 .scr{position:absolute;transform:translate(-50%,-50%);font-family:Consolas,"SF Mono",monospace;font-weight:700;color:#1d2623;font-size:clamp(12px,3.4vw,22px);letter-spacing:.02em;white-space:nowrap;pointer-events:none}
+.pref{color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:2px}
 .pager{display:flex;justify-content:space-between;gap:12px;font-size:14px;font-weight:700;padding-block:4px 8px}
 .pager a{text-decoration:none;color:var(--green)}
 .pager a:last-child{text-align:right}
