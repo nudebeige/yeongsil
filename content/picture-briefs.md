@@ -1,7 +1,7 @@
 # AI 실물 그림 구상서
 
 ## 원칙
-- 글자·숫자 없이 만든다. 프롬프트 끝에 항상 `No text, no letters, no numbers.` 화면 숫자·이름표·번호는 HTML로 얹는다(`screens`, `badges`, `pins`).
+- 글자·숫자 없이 만든다. 프롬프트 끝에 v2 꼬리말 T(blank unmarked surfaces)를 붙인다. 화면 숫자·이름표·번호는 HTML로 얹는다(`screens`, `badges`, `pins`).
 - 한국 집 기준: 콘센트는 둥근 구멍 2개 + 양옆 금속 접지 클립(Type F), 220V, 아파트 실내.
 - 사람 손이 나오면 마른 손, 침은 보호 턱 뒤. 위험한 자세는 그리지 않는다.
 - 기호·글자가 핵심인 것(다이얼 기호, 명판, 고지서)은 AI가 틀리므로 **직접 그림이나 HTML 양식**으로 만든다.
@@ -11,7 +11,7 @@
 ## 진행 기록
 - 2026-11-20 (8번 시도, 한도 남음 불확실): **완료** G13-1(2-2 부품, `public/img/g13-1.webp`), G12(2-1 검전기, `g12.webp`) — `content/patch8.js`.
   한도: 8번째 시도 뒤 막힘 → 하루 약 8번으로 계획.
-  다음 날 고친 프롬프트(아래 각 그림 항목의 원래 프롬프트 대신 이것부터):
+  다음 날 고친 프롬프트(11-21 v2로 바뀜, 기록용):
   - G13-2: `Realistic photo, three-quarter side angle view of a white European schuko wall socket on a white wall. Two thin metal test probes, one red and one black, are each pushed into one of the two round holes so that the metal tips disappear inside the holes, the red and black plastic probe handles sticking out at an angle, held at the grips by a dry hand. No multimeter in the frame. Soft daylight, shallow depth of field. No text, no letters, no numbers.`
   - G13-3: `Split image with two equal halves, realistic photo on a light wooden table. Left half: a single AA battery lying flat, a red test probe tip pressing on its positive end button and a black test probe tip pressing on its flat negative end. Right half: the round European plug (two round metal pins, schuko style) of an unplugged white extension cord lying on the table, a red test probe tip touching one round pin and a black test probe tip touching the other round pin. Soft daylight. No text, no letters, no numbers.`
   - G14: `Realistic product photo on a white desk: a handheld digital clamp meter with a blank screen, its curved jaw fully closed in a ring around one single white insulated power cord. The cord runs from a small white line splitter adapter that is plugged into a white power strip. All wires are fully insulated, no bare copper visible. A hand holds the meter body. Soft daylight. No text, no letters, no numbers.`
@@ -25,6 +25,66 @@
 3. **남으면**: G18 · G20 · G22 · G23 · G24 · G17 · G42 · G44 · G45 · G13-2 · G13-3
 - G38(5-6 단자함)은 뺌: 5-11 장비 사진 6장으로 대신하고 5-6에서 링크.
 - Qwen이 막히면 같은 계정 Z-Image-Turbo도 한도를 같이 씀(11-21 둘 다 거절 확인).
+
+## 고친 프롬프트 v2 (2026-11-21) — 이것부터 쓴다
+아래 날짜별 항목의 프롬프트는 옛 버전(참고용). 만들 때는 이 표의 순서와 문장을 쓴다.
+
+**규칙 1 · 어려운 건 AI에게 안 맡긴다**
+- 손·손가락·사람 얼굴·탐침이 구멍에 들어간 모습·집게가 무는 모습은 그리지 않는다. 물건만 놓인 사진을 받는다.
+- "어디에 대요, 여기를 눌러요"는 HTML로 얹는다: `rings`(동그라미) + `pins`(말풍선) + `badges`(번호).
+- 한 장에 한 장면. 두 칸 나눈 그림은 한 장면으로 줄이거나, 두 물건을 한 탁자 위에 나란히 놓는다.
+
+**규칙 2 · 원하는 모습만 긍정문으로**
+- "no ~"를 쓰지 않는다(이 모델은 부정어를 무시하고 오히려 그 단어를 그린다).
+- 개수를 박는다: exactly one / exactly two / exactly four.
+- 배경을 단순하게: plain white / light grey background, 빈 방, 빈 조리대.
+- 모든 프롬프트 끝에 같은 꼬리말 **T** 를 붙인다:
+  `Realistic photo, sharp focus, soft even daylight. Clean unbranded objects with blank unmarked surfaces.`
+- 구도가 좋은데 한 군데만 틀리면: 그 그림의 seed를 적어 두고 `randomize_seed:false`로 한 단어만 바꿔 다시.
+- 기본 단계 수(8) 그대로. 크게 뽑지 않는다(한도는 GPU 시간이라).
+
+콘센트 말 고정 — 아래 **[콘센트]** 자리에 이 문장을 풀어 넣는다:
+`a white European Type F wall socket with exactly two round holes and two shiny metal grounding clips at the top and bottom edges`
+
+### 1순위 · 증상 쪽 (첫 화면)
+| 그림 | 쪽 | 프롬프트 (끝에 T) | 비율 | HTML로 얹기 |
+|---|---|---|---|---|
+| G39 | 5-7 | `Close-up of [콘센트] on light beige wallpaper. Dark brown scorch marks spread around the left round hole. Exactly one white round-pin plug is half inserted, its plastic body melted and deformed. A grey smoke stain fans upward on the wallpaper above the socket.` | 4:3 | badges ①그을음(hot) ②녹은 플러그(hot) |
+| G35 | 5-3 | `A white living room wall with exactly two [콘센트] mounted one meter apart at knee height. Exactly two identical white desk lamps stand on the wooden floor, each plugged into its own socket. The right lamp glows warm and bright, the left lamp is dark and switched off. Plain empty room.` | 16:9 | pins "안 켜짐", "옆은 켜짐" · ring 왼쪽 콘센트 |
+| G37 | 5-5 | `A clean Korean apartment kitchen counter with exactly one white microwave oven, its door closed, its power cord plugged into a [콘센트] on the tiled wall behind it. The microwave interior light glows. Empty counter around it.` | 4:3 | pins "켜는 순간", "큰 차단기가 탁" · note로 5-1쪽 연결 |
+| G36 | 5-4 | `Looking up at a white living room ceiling with exactly four round flat LED ceiling lights in a row. Three lights shine bright white, the second light from the left is dim and greyish. A white wall light switch plate is visible on the wall at the lower right.` | 16:9 | badges ①이 등만 어두움(hot) ②스위치 |
+| G40 | 5-8 | `A modern white kitchen. Exactly one round white smoke detector is mounted on the flat white ceiling, its small red indicator light glowing. Directly below on the stove, exactly one frying pan sends a thin wisp of light white cooking steam rising toward the detector.` | 4:3 | badges ①감지기 ②요리 김·연기 |
+| G46 | 5-10 | `A Korean apartment ceiling with exactly one round flush-mounted ceiling light. A brown water stain spreads across the ceiling around the light, and clear water drops fall from the edge of the light. Exactly one blue plastic bucket stands on the wooden floor directly below catching the drops.` | 4:3 | badges ①물 떨어지는 등(hot) · pin "그 갈래 차단기부터" |
+| G10 | 1-8 | `Top-down view of a light wooden floor. Exactly one white power strip with four sockets lies on the floor, and a second white power strip is plugged into it. Thick black plugs from an electric heater, a hair dryer and an electric kettle fill the sockets, their cords tangled. The plastic around one socket is browned by heat.` | 16:9 | badges ①멀티탭에 멀티탭(hot) ②열 내는 기기 몰림 ③누렇게 변색(hot) |
+| G27 | 3-8 | `A modern Korean kitchen with a black built-in induction cooktop on a white counter. Below it the cabinet door is open, showing exactly one [콘센트] inside the cabinet with exactly one thick grey plug plugged straight into it. Tidy empty cabinet.` | 4:3 | badges ①인덕션 ②전용 콘센트 · pin "멀티탭 ✕" |
+| G43 | 3-9 | `The front door of a Korean apartment standing open. On the grey entrance floor sit exactly one dark grey canvas tool bag and exactly one clipboard, and exactly one plain white ID card on a blue lanyard hangs from the door handle. Empty hallway.` | 4:3 | pin "신분증부터 확인" · badge ①점검 가방 |
+
+### 2순위 · 기초 쪽
+| 그림 | 쪽 | 프롬프트 (끝에 T) | 비율 | HTML로 얹기 |
+|---|---|---|---|---|
+| G08 | 1-6 | `Product photo on a plain light grey background. Exactly two wall sockets side by side. Left: [콘센트], bright white. Right: an old yellowed wall socket with exactly two round holes and a plain flat plastic face around them.` | 16:9 | badges ①금속 접지 클립 ②클립 없음(hot) · pins "접지형", "옛날형" |
+| G11 | 1-9 | `Exactly two home electrical panels mounted side by side on a white wall. Left: a small old beige metal box with exactly four old black lever switches and dusty aged wires. Right: a clean modern white panel with its door open, showing exactly one wide main breaker with a small blue button and a row of exactly eight narrow white breakers, all levers up.` | 16:9 | pins "옛 분전반", "새 분전반" · badges ①T 버튼 없음 ②T 버튼 |
+| G29 | 4-2 | `Close-up of the inside of a white home electrical panel. Exactly one wide white residual current breaker on the left with a small round blue push button on its front and its lever up, next to a row of narrow white breakers with levers up.` | 4:3 | badges ①T 버튼 ②레버 · ring 파란 버튼 · pin "한 달에 한 번, 누르면 '탁'" |
+| G32 | 4-5 | `Close-up of the inside of a white home electrical panel. A row of narrow white breakers, and at the right end exactly one grey surge protection module of the same height with a small green status window on its front.` | 4:3 | badges ①SPD ②상태 창(초록 = 정상) |
+| G14 | 2-3 | `On a plain white desk lie exactly two objects side by side: on the left a yellow handheld digital clamp meter with a blank screen and its curved jaw closed into a ring; on the right a small white plug-in line splitter adapter with one white insulated cord coming out of it.` | 4:3 | badges ①집게 ②라인 분리기 · pin "선 한 가닥만 집게 안으로" · screens `3.5 A` |
+| G15 | 2-4 | `On a plain grey workbench lies exactly one yellow handheld insulation resistance tester with a blank screen, its red lead and black lead neatly coiled beside it, each ending in a small metal alligator clip.` | 4:3 | badges ①측정기 ②집게 · screens `500 MΩ` · 캡션 "기사님이 쓰는 측정기예요" |
+
+### 3순위 · 남으면
+| 그림 | 쪽 | 프롬프트 (끝에 T) | 비율 | HTML로 얹기 |
+|---|---|---|---|---|
+| G13-2 | 2-2 | `A white wall with exactly one [콘센트] at eye level, seen straight on. On a small white shelf directly below lies exactly one yellow digital multimeter with a blank screen, its red probe and black probe lying side by side in front of it.` | 4:3 | rings 두 구멍 · pins "검정 먼저", "빨강 다음" · screens `221V` |
+| G13-3 | 2-2 | `On a light wooden table lie exactly three objects in a row: exactly one AA battery, exactly one yellow digital multimeter with a blank screen and its red and black probes, and the round-pin European plug end of a white extension cord with exactly two round metal pins.` | 16:9 | rings 건전지 두 끝·플러그 두 핀 · pins "1.6V = 새 것", "삐- = 이어짐" |
+| G18 | 2-7 | `Product photo on a plain light grey background, exactly four white wall sockets in one row: first [콘센트]; second the same socket under a hinged clear splash cover; third a round pop-up floor socket set into a wooden floor panel; fourth the same socket with two small USB ports below the holes.` | 16:9 | badges ①접지형 ②욕실 방적형 ③바닥 매입형 ④USB 겸용 |
+| G20 | 3-1 | `Exactly one white wall socket lying face down on a plain white table, its back showing three screw terminals. Exactly three short insulated wires are attached, one to each terminal: one solid brown wire, one solid blue wire, one green-and-yellow striped wire. Each wire keeps a single color from end to end.` | 4:3 | badges ①갈색 ②파랑 ③초록노랑 · pin "풀기 전에 먼저 사진" |
+| G22 | 3-3 | `Exactly two identical white table lamps stand side by side on a white shelf against a white wall. The left lamp glows warm yellow, the right lamp glows cool bluish white. Each lamp lights the wall behind it in its own color.` | 16:9 | pins "3000K 노란빛", "5000K 하얀빛" |
+| G23 | 3-4 | `A modern Korean apartment living room at night. The ceiling has a recessed cove around its edge where a hidden LED strip casts a soft warm glow. Exactly one small square white access hatch sits in the flat ceiling.` | 16:9 | badges ①LED 숨은 자리 ②점검구 |
+| G24 | 3-5 | `A bare room floor during renovation, before the flooring goes on. Thin black heating film sheets lie in parallel strips on white insulation boards, short black cables are joined at the strip ends along one wall, and exactly one small round temperature sensor is taped between two strips.` | 16:9 | badges ①필름 ②가장자리 배선 ③온도 센서 |
+| G17 | 2-6 | `An apartment interior wall opened up during renovation. Exactly one orange corrugated conduit runs straight down inside the wall to a square metal outlet box, and grey corrugated conduits run along the ceiling. A yellow measuring tape is stretched along the wall, held by tape.` | 4:3 | badges ①주황 주름관(CD관) ②회색 주름관 ③콘센트 박스 · pin "줄자 대고 사진" |
+| G42 | 1-10 | `A sunny Korean living room. On the wooden floor a small brown puppy lies resting. Along the white baseboard runs exactly one white plastic cable cover channel, and above it exactly one [콘센트] with a clear plastic safety cover clipped over its holes.` | 4:3 | badges ①안전 덮개 ②전선 보호관 |
+| G44 | 3-11 | `A clean home garage. Exactly one white electric car is parked with its charging cable plugged into its side port. The cable runs to a portable charging control box and then to exactly one grey weatherproof wall socket with a hinged lid on the garage wall.` | 16:9 | pin "전용 콘센트 ○" · note "릴선·멀티탭 ✕"(HTML) |
+| G45 | 3-12 | `Outside view of a Korean apartment balcony railing under blue sky. Exactly one small rectangular solar panel is mounted on the railing with sturdy metal brackets, and a short black cable runs neatly along the rail into the balcony to exactly one small white inverter box.` | 4:3 | badges ①고정 브래킷 ②선 정리 ③인버터 |
+
+G38(5-6 단자함)은 5-11 사진으로 대신해서 v2는 26장.
 
 ## 참고 인포그래픽에서 가져올 구도 (2026-11-20)
 사용자가 보여 준 「분전반의 이해」「배전반의 이해」「접지 플러그의 이해」「누전 vs 합선」「콘센트의 구조」「일반 멀티탭 vs 서지보호 멀티탭」 카드뉴스. 남이 만든 이미지라 그대로 쓰거나 따라 그리지 않고, **설명 구도만** 참고한다.
@@ -48,6 +108,7 @@
 ---
 
 ## 1일차 — 장비
+> 여기부터 아래는 옛 프롬프트(기록용). 만들 때는 위 **v2** 표를 쓴다.
 
 ### G13-1 · 2-2 멀티테스터 부품 이름 (img, 맨 위)
 `Product photo, front view of a handheld digital multimeter with yellow rubber bumper and black body on a plain white background, blank empty LCD screen at top, large round black rotary dial in the center, three round input jacks in a row at the bottom, black test lead plugged into the middle jack and red test lead plugged into the right jack, the left jack empty, probes lying below, soft studio light. No text, no letters, no numbers, no symbols, completely blank screen.` (4:3)
