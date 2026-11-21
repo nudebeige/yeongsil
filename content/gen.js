@@ -8,7 +8,7 @@ function mime(key){ return fs.existsSync(path.join(S, key + ".png")) ? "image/pn
 // 실물 그림 한 장: { img, imgH, imgLead, alt, rings, pins, badges, screens, legend, cap }
 // screens: 그림 속 화면 자리에 얹는 숫자 [x%, y%, "221.4 V"]
 function photo(o){
-  let h = `<section class="photo"><h2 class="sec-h">${o.imgH}</h2>${o.imgLead?`<p class="lead">${o.imgLead}</p>`:""}<div class="ph"><img src="/img/${o.img}.webp" alt="${o.alt}" loading="lazy">`;
+  let h = `<section class="photo"${o.pid?` id="${o.pid}"`:""}><h2 class="sec-h">${o.imgH}</h2>${o.imgLead?`<p class="lead">${o.imgLead}</p>`:""}<div class="ph"><img src="/img/${o.img}.webp" alt="${o.alt}" loading="lazy">`;
   (o.rings||[]).forEach(r=>{ h += `<span class="ring" style="left:${r[0]}%;top:${r[1]}%;width:${r[2]}%;height:${r[3]}%"></span>`; });
   (o.screens||[]).forEach(s=>{ h += `<span class="scr" style="left:${s[0]}%;top:${s[1]}%">${s[2]}</span>`; });
   (o.pins||[]).forEach(b=>{ h += `<span class="pin" style="left:${b[0]}%;top:${b[1]}%${b[3]?";background:var(--green)":""}">${b[2]}</span>`; });

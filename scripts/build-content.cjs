@@ -26,7 +26,7 @@ Object.assign(P["5-8"], { svgH: "관리실이 우리 집을 바로 아는 이유
 Object.assign(P["5-9"], { svgH: "이 순서로, 세 가지만", svg: sv("g59") });
 Object.assign(P["3-10"], { rawH: "좋은 견적서는 이렇게 생겼어요 (내역서형)", raw: r("quote.html"), svgH: "견적서 받으면 이것만", svg: sv("g310") });
 P["3-10"].water = "같은 공사인데 견적이 두 배씩 차이 나는 건 견적 방식이 달라서인 경우가 많아요. '총 얼마'로 뭉친 견적(일식)보다, 자재와 인건비를 줄마다 나눈 견적(내역서형)이 비교하기도 따지기도 쉬워요.";
-for (const f of ["patch.js", "patch2.js", "patch3.js", "patch4.js", "patch5.js", "patch6.js", "patch7.js", "patch8.js"]) load(f)(P);
+for (const f of ["patch.js", "patch2.js", "patch3.js", "patch4.js", "patch5.js", "patch6.js", "patch7.js", "patch8.js", "patch9.js"]) load(f)(P);
 
 // ── 글(article) 나누기
 const splitArticles = html => (html.match(/<article[\s\S]*?<\/article>/g) || []);
@@ -102,6 +102,20 @@ button.zoomhint:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
 .flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;counter-reset:fl}
 .flow li{counter-increment:fl;position:relative;border:1.5px solid var(--line);border-radius:10px;padding:10px 8px;display:flex;flex-direction:column;gap:3px;font-size:12.5px;min-width:0;background:var(--paper)}
 .flow li::before{content:counter(fl);display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--muted);color:#fff;font-size:11px;font-weight:900}
+.glance{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.glance a{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);border:1.5px solid var(--line);border-radius:12px;padding:8px;background:var(--paper);position:relative}
+.glance a::before{content:"";position:absolute;left:84px;top:-1.5px;width:28px;height:3px;border-radius:2px;background:var(--acc)}
+.glance a:hover{border-color:var(--acc)}
+.glance a:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.glance img{width:64px;height:64px;flex:none;object-fit:cover;border-radius:8px;background:#eef0f1}
+.glance span{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 6px;min-width:0}
+.glance b{font-size:15px}
+.glance i{font-style:normal;color:var(--muted)}
+.glance em{font-style:normal;font-weight:900;font-size:15px;color:var(--acc)}
+.glance .c-water{--acc:var(--water)}.glance .c-green{--acc:var(--green)}.glance .c-amber{--acc:var(--amber)}.glance .c-ink{--acc:var(--ink)}
+.photo{scroll-margin-top:72px}
+@media (max-width:560px){.glance{grid-template-columns:minmax(0,1fr)}}
+.flow.f4{grid-template-columns:repeat(4,minmax(0,1fr))}
 .flow li.flow-me{border-color:var(--green);background:var(--green-soft)}
 .flow li.flow-me::before{background:var(--green)}
 .flow li:not(:last-child)::after{content:"→";position:absolute;right:-9px;top:50%;transform:translateY(-50%);color:var(--muted);font-weight:900;font-size:13px;z-index:1}
@@ -109,7 +123,7 @@ button.zoomhint:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
 .flow span{color:var(--ink)}
 .flow em{font-style:normal;font-size:11.5px;color:var(--muted);margin-top:auto}
 @media (max-width:560px){
-  .flow{grid-template-columns:minmax(0,1fr);gap:14px}
+  .flow,.flow.f4{grid-template-columns:minmax(0,1fr);gap:14px}
   .flow li{display:grid;grid-template-columns:24px 1fr;grid-template-rows:auto auto auto;column-gap:8px;padding:8px 10px}
   .flow li::before{grid-row:1/4}
   .flow li:not(:last-child)::after{content:"↓";right:auto;left:20px;top:auto;bottom:-15px;transform:none}
