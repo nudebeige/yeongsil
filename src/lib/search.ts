@@ -11,7 +11,7 @@ export const SYNONYMS: [RegExp, string][] = [
   [/전기\s*(가\s*)?(나가|나갔|나감|끊겼|끊어)\S*/g, "정전"],
   [/불\s*(이\s*)?(다\s*)?(나갔|나가|꺼졌)\S*/g, "정전"],
   [/정전\S*/g, "정전"],
-  [/찌릿\S*|짜릿\S*|저릿\S*|전기\s*(가\s*)?올라\S*|전기\s*먹\S*/g, "감전"],
+  [/찌릿\S*|짜릿\S*|저릿\S*|전기\s*(가\s*)?(올라|와|오|통해|통하)\S*|전기\s*먹\S*|감전\S*/g, "감전"],
   [/타는\s*냄새|탄\s*냄새|탄내|타는\s*내|타는\s*듯한/g, "탄냄새"],
   [/전기\s*세|전기\s*요금|전깃세|요금\s*폭탄|고지서/g, "전기요금"],
   [/와이\s*파이|wifi|wi-fi/gi, "와이파이"],
@@ -25,6 +25,22 @@ export const SYNONYMS: [RegExp, string][] = [
 
 // 뜻이 거의 없는 말 (관련도 계산에서 뺌)
 const FILLER = new Set(["갑자기", "많이", "너무", "자꾸", "계속", "좀", "왜", "어떻게", "해요", "돼요", "있어요", "없어요", "나와요", "나요", "했어요", "됐어요", "같아요", "요즘", "오늘", "우리", "집", "집에", "집에서", "그냥", "다", "또", "안", "뭐", "어디", "어디서"]);
+
+// 위험한 말이 들어간 검색은 설명 쪽보다 안전·응급 쪽을 맨 위에 (점수와 상관없이)
+export const DANGER: [string, string][] = [
+  ["감전", "5-9"],
+  ["탄냄새", "5-7"],
+];
+
+function putDangerFirst(items: SearchItem[], words: string[], results: SearchItem[]) {
+  const first: SearchItem[] = [];
+  for (const [w, id] of DANGER) {
+    if (!words.some(x => x.startsWith(w))) continue;
+    const page = items.find(r => r.id === id);
+    if (page && !first.includes(page)) first.push(page);
+  }
+  return [...first, ...results.filter(r => !first.includes(r))];
+}
 
 export function normalize(q: string): string[] {
   let s = " " + q.trim() + " ";
@@ -47,7 +63,8 @@ export function search(items: SearchItem[], q: string) {
     .sort((a, b) => b.s - a.s);
   const top = scored[0]?.s || 0;
   // 기준: 맨 위 결과가 검색어의 40% 이상 맞고, 3글자 이상(검색어가 짧아 다 맞으면 2글자도) 맞아야 보여 줌. 그 아래는 맨 위의 60% 이상만.
-  if (top / total < 0.4 || (top < 3 && top < total)) return { words, results: [] as SearchItem[], weak: true };
-  const results = scored.filter(x => x.s >= top * 0.6).slice(0, 6).map(x => x.r);
-  return { words, results, weak: false };
+  const weak = top / total < 0.4 || (top < 3 && top < total);
+  // 위험한 말이 있으면 관련도가 낮아도 응급 쪽은 꼭 보여 줌
+  const results = putDangerFirst(items, words, weak ? [] : scored.filter(x => x.s >= top * 0.6).map(x => x.r));
+  return { words, results: results.slice(0, 6), weak: results.length === 0 };
 }
