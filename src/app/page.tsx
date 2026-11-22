@@ -1,12 +1,14 @@
 import Link from "next/link";
 import TopBar from "@/components/TopBar";
 import Search from "@/components/Search";
+import PartOpener from "@/components/PartOpener";
 import { home, searchIndex } from "@/lib/data";
 
 export default function Home() {
   return (
     <div className="hp">
       <TopBar />
+      <PartOpener />
       <main>
         <div className="hero gut">
           <div className="wrap">
@@ -58,14 +60,19 @@ export default function Home() {
         <section className="blk gut">
           <div className="wrap">
             <h2>처음부터 차근차근</h2>
-            <p className="sub">우리 집 전기가 어떻게 생겼는지부터 알면, 고장 났을 때 훨씬 덜 당황해요.</p>
+            <p className="sub">우리 집 전기가 어떻게 생겼는지부터 알면, 고장 났을 때 훨씬 덜 당황해요. 부를 누르면 쪽 목록이 펼쳐져요.</p>
             <div style={{ marginTop: 20 }}>
               {home.parts.map((p, i) => (
-                <div className="part" id={p.id} key={p.id}>
-                  <div className="pn" aria-hidden="true">{i}</div>
-                  <div className="ph">
-                    <h3>{p.name}</h3>
-                    <p>{p.d}</p>
+                <details className="part" id={p.id} key={p.id}>
+                  <summary>
+                    <span className="pn" aria-hidden="true">{i}</span>
+                    <span className="ph">
+                      <span className="h3">{i}부 · {p.name}</span>
+                      <span className="d">{p.d}</span>
+                    </span>
+                    <span className="cnt">{p.pages.length}쪽</span>
+                  </summary>
+                  <div className="ph-body">
                     <div className="list">
                       {p.pages.map(([id, t]) => (
                         <Link key={id} href={`/${id}`}>
@@ -75,7 +82,7 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
-                </div>
+                </details>
               ))}
             </div>
           </div>

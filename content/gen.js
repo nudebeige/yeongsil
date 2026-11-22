@@ -18,6 +18,10 @@ function photo(o){
   h += `<figcaption>${o.cap || "이해를 돕기 위한 그림이라 실제 모양과 다를 수 있어요."}</figcaption></section>\n`;
   return h;
 }
+// 보낼 문장의 빈칸(___, ___(설명))과 고르는 괄호(가 / 나)를 노란 표시로
+function markBlanks(s){
+  return s.replace(/_{2,}(\([^()]*\))?|\([^()]*\/[^()]*\)/g, m => `<mark class="blank">${m}</mark>`);
+}
 function article(p, prev, next, partNo, partName){
   let h = `<article class="page" id="p${p.id}" aria-label="${p.id}쪽">
 <div class="band"><span><b>제${partNo}부</b> · ${partName}</span><span class="pno">${p.id}</span></div>
@@ -39,7 +43,7 @@ function article(p, prev, next, partNo, partName){
 <div class="light"><span class="dot g"></span><span><b>직접 해도 돼요</b> · ${p.range[0]}</span></div>
 <div class="light"><span class="dot y"></span><span><b>눈으로만 봐요</b> · ${p.range[1]}</span></div>
 <div class="light"><span class="dot r"></span><span><b>전문가에게 맡겨요</b> · ${p.range[2]}</span></div></div></section>\n`;
-  if (p.say) h += `<section><h2 class="sec-h">${p.sayH||"기사님께 이렇게 말해요"}</h2><div class="out"><small>보낼 문장</small>“${p.say}”</div></section>\n`;
+  if (p.say) h += `<section class="say-box"><h2 class="sec-h">${p.sayH||"기사님께 이렇게 말해요"}</h2><div class="out"><small>보낼 문장</small><span class="say-t">“${markBlanks(p.say)}”</span></div><div class="say-act"><button type="button" class="say-copy">문장 복사</button></div><p class="note">노란 칸은 우리 집 상황으로 바꾸고, 괄호 속은 맞는 것 하나만 남겨요.</p></section>\n`;
   h += `<div class="warn" role="note">${WARN}<span>${p.warn}</span></div>\n`;
   h += `<div class="foot">${prev?`<a href="#p${prev.id}" style="color:inherit">← ${prev.id}</a>`:`<span>${p.id}</span>`}${next?`<a href="#p${next.id}" style="color:inherit">다음 쪽: ${next.t1.replace(/<[^>]+>/g,"")} ${next.t2.replace(/<[^>]+>/g,"")} →</a>`:`<span>${p.id}</span>`}</div>
 </div><div class="bottom">${p.bottom}</div></article>\n`;

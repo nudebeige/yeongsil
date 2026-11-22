@@ -30,10 +30,34 @@ export default function NoteScripts({ id }: { id: string }) {
       b.addEventListener("click", onBox);
       off.push(() => { btn.removeEventListener("click", onBtn); b.removeEventListener("click", onBox); set(false); });
     }
+    off.push(sayCopy());
     if (id === "5-2") off.push(messageBuilder());
     return () => { hints.forEach(h => h.remove()); off.forEach(f => f()); };
   }, [id]);
   return null;
+}
+
+// 쪽마다 있는 '보낼 문장' 복사 (빈칸 표시는 그대로 글자로 복사됨)
+function sayCopy() {
+  const btns = Array.from(document.querySelectorAll<HTMLButtonElement>(".np .say-copy"));
+  const handlers = btns.map(btn => {
+    const fn = () => {
+      const t = btn.closest(".say-box")?.querySelector(".say-t");
+      if (!t) return;
+      const text = (t.textContent || "").replace(/^“|”$/g, "").trim();
+      const sel = () => {
+        const r = document.createRange(); r.selectNodeContents(t);
+        const g = getSelection(); g?.removeAllRanges(); g?.addRange(r);
+        btn.textContent = "선택됨, 길게 눌러 복사";
+      };
+      try {
+        navigator.clipboard.writeText(text).then(() => { btn.textContent = "복사됨"; setTimeout(() => { btn.textContent = "문장 복사"; }, 1800); }, sel);
+      } catch { sel(); }
+    };
+    btn.addEventListener("click", fn);
+    return () => btn.removeEventListener("click", fn);
+  });
+  return () => handlers.forEach(f => f());
 }
 
 function messageBuilder() {
