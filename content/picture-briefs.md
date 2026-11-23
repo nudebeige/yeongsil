@@ -21,6 +21,7 @@
   - **다시 보니 뺀 3장**(사용자 지적): G39 플러그가 콘센트 옆 공중에 뜸 · G35 스탠드가 큰 콘센트 대신 엉뚱한 작은 상자에 꽂힘 · G27 콘센트가 수납장 벽 없이 공중에 뜸. → 쓰는 그림 5장(G37·G36·G40·G46·G10). 남은 1순위: G39·G35·G27·G43.
   - **교훈(규칙 3)**: 플러그를 "꽂힌 모습"으로 요구하면 옆에 떠 버린다. 플러그가 꼭 필요 없으면 빼고, 필요하면 `the plug is pushed fully into the socket, its face flush against the socket` + 콘센트는 `mounted flat on the wall surface`. 판정은 "물리적으로 가능한가(뜨지 않았나, 어디에 붙었나)"를 먼저 본다.
   - 다시 할 프롬프트: G39 `Close-up of [콘센트] mounted flat on light beige wallpaper. Dark brown scorch marks spread around the left round hole and onto the white plastic face. A grey smoke stain fans upward on the wallpaper above the socket.`(+T, 플러그 없음) · G27 `... the cabinet back wall has exactly one [콘센트] mounted flat on it, with exactly one thick grey plug pushed fully into it, its face flush against the socket ...` · G35 `... exactly two [콘센트] mounted flat on the wall at knee height. Each desk lamp cord goes straight into one of these two sockets, plugs pushed fully in, flush ...`
+- 2026-11-23 (8번 시도 → 4장 사용, 9번째에 한도): **완료** G39(5-7, 플러그 빼고 콘센트 옆 벽 그을음) · G27(3-8, 벽 콘센트에 플러그 끝까지) · G35(5-3, 콘센트 안 보이게 장 위 스탠드 두 개로 구도 바꿈) · G43(3-9). **실패** G35 첫 시도(화살표·플러그 매달림) · G08 ×2(옛 콘센트에도 접지 클립이 생김 → AI로는 "클립 없는 콘센트"를 못 그림, SVG로 직접 그리기로) · G29(파란 것이 레버로 나오고 위에 막대가 솟음 → 분전반 그림은 실패 잦음). 남은: 2순위 G11·G29·G32·G14·G15(G08은 SVG), 3순위 11장.
 
 ## 면접용 일주일 우선순위 (2026-11-21 정함, 11-28까지)
 하루 약 8번 × 7일 ≈ 56번, 건지는 비율 40% 안팎 → 약 20장 목표. 첫 화면 동그라미·증상 쪽부터.
