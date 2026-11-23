@@ -147,6 +147,19 @@ mark.blank{background:rgba(245,166,35,.28);color:inherit;border-bottom:2px dashe
 a.say-more{display:inline-block;border:1.5px solid var(--green);border-radius:8px;padding:8px 14px;font-weight:700;font-size:14px;color:var(--green);text-decoration:none;background:var(--paper)}
 a.say-more:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
 #say{scroll-margin-top:72px}
+.kind{display:inline-block;vertical-align:2px;margin-right:6px;font-size:11.5px;font-weight:900;line-height:1;padding:4px 7px;border-radius:999px;border:1.5px solid}
+.kind.kv{color:var(--water);border-color:var(--water);background:var(--water-soft)}
+.kind.kh{color:#fff;border-color:var(--green);background:var(--green)}
+.kind.kc{color:#fff;border-color:var(--coral);background:var(--coral)}
+.hands{border:2px solid var(--ink);border-radius:12px;padding:6px 14px;display:flex;flex-direction:column;background:var(--paper)}
+.hands-row{display:grid;grid-template-columns:64px 1fr;gap:10px;padding:10px 0;border-top:1px dashed var(--line);font-size:14.5px;line-height:1.6}
+.hands-row:first-child{border-top:0}
+.hands-row p{margin:0}
+.hands-row ul{margin:6px 0 0;padding-left:18px}
+.hands-row a{color:var(--green);font-weight:700}
+.hands-k{font-size:13px;font-weight:900;color:var(--ink)}
+.hands-k.stop{color:var(--coral)}
+#send{scroll-margin-top:72px}
 .pager{display:flex;justify-content:space-between;gap:12px;font-size:14px;font-weight:700;padding-block:4px 8px}
 .pager a{text-decoration:none;color:var(--green)}
 .pager a:last-child{text-align:right}

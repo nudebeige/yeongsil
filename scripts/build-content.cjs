@@ -26,7 +26,7 @@ Object.assign(P["5-8"], { svgH: "관리실이 우리 집을 바로 아는 이유
 Object.assign(P["5-9"], { svgH: "이 순서로, 세 가지만", svg: sv("g59") });
 Object.assign(P["3-10"], { rawH: "좋은 견적서는 이렇게 생겼어요 (내역서형)", raw: r("quote.html"), svgH: "견적서 받으면 이것만", svg: sv("g310") });
 P["3-10"].water = "같은 공사인데 견적이 두 배씩 차이 나는 건 견적 방식이 달라서인 경우가 많아요. '총 얼마'로 뭉친 견적(일식)보다, 자재와 인건비를 줄마다 나눈 견적(내역서형)이 비교하기도 따지기도 쉬워요.";
-for (const f of ["patch.js", "patch2.js", "patch3.js", "patch4.js", "patch5.js", "patch6.js", "patch7.js", "patch8.js", "patch9.js", "patch10.js"]) load(f)(P);
+for (const f of ["patch.js", "patch2.js", "patch3.js", "patch4.js", "patch5.js", "patch6.js", "patch7.js", "patch8.js", "patch9.js", "patch10.js", "patch11.js"]) load(f)(P);
 
 // ── 글(article) 나누기
 const splitArticles = html => (html.match(/<article[\s\S]*?<\/article>/g) || []);
@@ -106,6 +106,19 @@ mark.blank{background:rgba(245,166,35,.28);color:inherit;border-bottom:2px dashe
 a.say-more{display:inline-block;border:1.5px solid var(--green);border-radius:8px;padding:8px 14px;font-weight:700;font-size:14px;color:var(--green);text-decoration:none;background:var(--paper)}
 a.say-more:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
 #say{scroll-margin-top:72px}
+.kind{display:inline-block;vertical-align:2px;margin-right:6px;font-size:11.5px;font-weight:900;line-height:1;padding:4px 7px;border-radius:999px;border:1.5px solid}
+.kind.kv{color:var(--water);border-color:var(--water);background:var(--water-soft)}
+.kind.kh{color:#fff;border-color:var(--green);background:var(--green)}
+.kind.kc{color:#fff;border-color:var(--coral);background:var(--coral)}
+.hands{border:2px solid var(--ink);border-radius:12px;padding:6px 14px;display:flex;flex-direction:column;background:var(--paper)}
+.hands-row{display:grid;grid-template-columns:64px 1fr;gap:10px;padding:10px 0;border-top:1px dashed var(--line);font-size:14.5px;line-height:1.6}
+.hands-row:first-child{border-top:0}
+.hands-row p{margin:0}
+.hands-row ul{margin:6px 0 0;padding-left:18px}
+.hands-row a{color:var(--green);font-weight:700}
+.hands-k{font-size:13px;font-weight:900;color:var(--ink)}
+.hands-k.stop{color:var(--coral)}
+#send{scroll-margin-top:72px}
 .pager{display:flex;justify-content:space-between;gap:12px;font-size:14px;font-weight:700;padding-block:4px 8px}
 .pager a{text-decoration:none;color:var(--green)}
 .pager a:last-child{text-align:right}

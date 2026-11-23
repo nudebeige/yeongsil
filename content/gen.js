@@ -22,11 +22,25 @@ function photo(o){
 function markBlanks(s){
   return s.replace(/_{2,}(\([^()]*\))?|\([^()]*\/[^()]*\)/g, m => `<mark class="blank">${m}</mark>`);
 }
+// 단계 칩: v 보기만 · h 직접 조작 · c 멈춤·연락
+const KIND = { v: ["kv", "보기만"], h: ["kh", "직접 조작"], c: ["kc", "멈춤·연락"] };
+function kindChip(k){ return k && KIND[k] ? `<span class="kind ${KIND[k][0]}">${KIND[k][1]}</span>` : ""; }
+// 직접 손대는 쪽 맨 위 공통 상자
+function handsBox(p){
+  const o = p.handsOn;
+  return `<aside class="hands" aria-label="시작 전에 확인">
+<div class="hands-row"><b class="hands-k">어디까지</b><p>${o.level}</p></div>
+<div class="hands-row"><b class="hands-k stop">멈춤</b><div><p>하나라도 맞으면 시작하지 말고 기사님께.</p><ul>${o.stop.map(s=>`<li>${s}</li>`).join("")}</ul></div></div>
+<div class="hands-row"><b class="hands-k">기본값</b><p>헷갈리면 <b>기사님께 맡기는 게 기본</b>이에요.${p.say ? ' <a href="#send">보낼 문장 바로 가기 ↓</a>' : ' <a href="#p5-2">기사님께 보낼 문장 만들기(5-2쪽)</a>'}</p></div>
+</aside>
+`;
+}
 function article(p, prev, next, partNo, partName){
   let h = `<article class="page" id="p${p.id}" aria-label="${p.id}쪽">
 <div class="band"><span><b>제${partNo}부</b> · ${partName}</span><span class="pno">${p.id}</span></div>
 <div class="inner">
 <header class="title"><h1>${p.t1}<span>${p.t2}</span></h1><p>${p.sub}</p></header>\n`;
+  if (p.handsOn) h += handsBox(p);
   if (p.img) h += photo(p);
   if (p.svg) h += `<section><h2 class="sec-h">${p.svgH}</h2>${p.svgLead?`<p class="lead">${p.svgLead}</p>`:""}<div class="svgbox">${p.svg}</div>${p.svgNote?`<p class="note">${p.svgNote}</p>`:""}</section>\n`;
   if (p.raw) h += `<section><h2 class="sec-h">${p.rawH}</h2>${p.raw}</section>\n`;
@@ -35,7 +49,7 @@ function article(p, prev, next, partNo, partName){
   if (p.cases) h += `<section><h2 class="sec-h">${p.casesH||"이럴 때 자주 생겨요"}</h2><ul class="cases">${p.cases.map(c=>`<li><b>${c[0]}</b>${c[1]?`<span>${c[1]}</span>`:""}</li>`).join("")}</ul></section>\n`;
   if (p.words) h += `<section><h2 class="sec-h">${p.wordsH||"꼭 알아 둘 것"}</h2><div class="words">${p.words.map(w=>`<div class="word"><b>${w[0]}</b><span>${w[1]}</span></div>`).join("")}</div></section>\n`;
   if (p.causes) h += `<section><h2 class="sec-h">${p.causesH}</h2><div class="causes">${p.causes.map(c=>`<div class="c"><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="21" fill="var(--${c[0]}-soft)"/><text x="22" y="29" text-anchor="middle" font-size="20" font-weight="900" fill="var(--${c[0]==="water"?"water":c[0]==="coral"?"coral":c[0]==="amber"?"amber":"green"})">${c[1]}</text></svg><div><h3>${c[2]}</h3><p class="doing">${c[3]}</p>${c[4]?`<div class="like">💧 ${c[4]}</div>`:""}</div></div>`).join("")}</div></section>\n`;
-  if (p.steps) h += `<section><h2 class="sec-h">${p.stepsH}</h2><ol class="order">${p.steps.map((s,i)=>`<li${s[2]?' class="stop"':""}><span class="num">${i+1}</span><div><h3>${s[0]}</h3><p>${s[1]}</p></div></li>`).join("")}</ol></section>\n`;
+  if (p.steps) h += `<section><h2 class="sec-h">${p.stepsH}</h2><ol class="order">${p.steps.map((s,i)=>`<li${s[2]?' class="stop"':""}><span class="num">${i+1}</span><div><h3>${kindChip(p.stepKinds&&p.stepKinds[i])}${s[0]}</h3><p>${s[1]}</p></div></li>`).join("")}</ol></section>\n`;
   (p.photos||[]).forEach(o => { h += photo(o); });
   if (p.tree) h += `<section><h2 class="sec-h">${p.tree.h}</h2><div class="tree"><div class="q">${p.tree.q}</div><div class="fork"><div class="br bad"><span class="yn y">${p.tree.y[0]}</span><strong>${p.tree.y[1]}</strong><span>${p.tree.y[2]}</span></div><div class="br"><span class="yn n">${p.tree.n[0]}</span><strong>${p.tree.n[1]}</strong><span>${p.tree.n[2]}</span></div></div></div></section>\n`;
   if (p.check) h += `<section><h2 class="sec-h">${p.checkH}</h2><ul class="legend" style="gap:8px">${p.check.map(c=>`<li><span class="k wait">☐</span><span>${c}</span></li>`).join("")}</ul></section>\n`;
@@ -43,7 +57,7 @@ function article(p, prev, next, partNo, partName){
 <div class="light"><span class="dot g"></span><span><b>직접 해도 돼요</b> · ${p.range[0]}</span></div>
 <div class="light"><span class="dot y"></span><span><b>눈으로만 봐요</b> · ${p.range[1]}</span></div>
 <div class="light"><span class="dot r"></span><span><b>전문가에게 맡겨요</b> · ${p.range[2]}</span></div></div></section>\n`;
-  if (p.say) h += `<section class="say-box"><h2 class="sec-h">${p.sayH||"기사님께 이렇게 말해요"}</h2><div class="out"><small>보낼 문장</small><span class="say-t">“${markBlanks(p.say)}”</span></div><div class="say-act"><button type="button" class="say-copy">문장 복사</button></div><p class="note">노란 칸은 우리 집 상황으로 바꾸고, 괄호 속은 맞는 것 하나만 남겨요.</p></section>\n`;
+  if (p.say) h += `<section class="say-box" id="send"><h2 class="sec-h">${p.sayH||"기사님께 이렇게 말해요"}</h2><div class="out"><small>보낼 문장</small><span class="say-t">“${markBlanks(p.say)}”</span></div><div class="say-act"><button type="button" class="say-copy">문장 복사</button></div><p class="note">노란 칸은 우리 집 상황으로 바꾸고, 괄호 속은 맞는 것 하나만 남겨요.</p></section>\n`;
   h += `<div class="warn" role="note">${WARN}<span>${p.warn}</span></div>\n`;
   h += `<div class="foot">${prev?`<a href="#p${prev.id}" style="color:inherit">← ${prev.id}</a>`:`<span>${p.id}</span>`}${next?`<a href="#p${next.id}" style="color:inherit">다음 쪽: ${next.t1.replace(/<[^>]+>/g,"")} ${next.t2.replace(/<[^>]+>/g,"")} →</a>`:`<span>${p.id}</span>`}</div>
 </div><div class="bottom">${p.bottom}</div></article>\n`;
