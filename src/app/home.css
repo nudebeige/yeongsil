@@ -142,32 +142,29 @@
 .topbar{
   --tb-bg:#ffffff; --tb-ink:#111111; --tb-muted:#6b6b6b; --tb-line:#e6e6e6; --tb-red:#e0362c;
   @media (prefers-color-scheme:dark){--tb-bg:#121212; --tb-ink:#f2f2f2; --tb-muted:#a0a0a0; --tb-line:#2c2c2c; --tb-red:#ff5a4f}
-  position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--tb-bg);color:var(--tb-ink);border-bottom:1px solid var(--tb-line);
+  position:sticky;top:0;padding-top:env(safe-area-inset-top,0px);z-index:5;background:var(--tb-bg);color:var(--tb-ink);border-bottom:1px solid var(--tb-line);
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
   font-family:var(--font-noto),"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
   a{color:inherit;text-decoration:none}
-  .bar{display:flex;align-items:center;gap:22px;height:58px;max-width:1080px;margin:0 auto}
+  .bar{display:flex;align-items:center;gap:22px;box-sizing:border-box;min-height:58px;padding-block:6px;max-width:1080px;margin:0 auto}
   .logo{display:flex;flex-direction:column;line-height:1.05;flex:none}
   .logo small{font-size:10.5px;color:var(--tb-muted);font-weight:500}
   .logo b{font-size:19px;font-weight:900;letter-spacing:-.03em}
-  nav{display:flex;gap:18px;overflow-x:auto;scrollbar-width:none;font-size:14px;font-weight:700;min-width:0}
-  nav::-webkit-scrollbar{display:none}
+  /* 가로 스크롤(스크롤바 숨김)은 아이폰에서 뒤쪽 메뉴가 잘린 줄 모름 → 넘치면 줄바꿈해서 항상 다 보이게 */
+  nav{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:14px;font-weight:700;min-width:0}
   nav a{white-space:nowrap;padding-block:4px}
   nav a.tb-hot{color:var(--tb-red)}
-  /* 좁은 화면: 부 바로가기는 첫 화면 '처음부터 차근차근' 목록에 있으니 숨기고, 꼭 필요한 셋만 남김 */
+  /* 좁은 화면: 부 바로가기는 첫 화면 목록과 전체 보기에 있으니 숨김 */
   @media (max-width:760px){
     .bar{gap:14px}
-    nav{gap:14px}
+    nav{column-gap:14px}
     nav a.tb-part{display:none}
   }
   @media (max-width:430px){
     .bar{gap:12px}
-    nav{gap:11px;font-size:13.5px}
-  }
-  @media (max-width:390px){
-    .logo small{display:none}
+    nav{column-gap:12px;font-size:13.5px}
   }
   @media (max-width:340px){
-    nav{font-size:13px;gap:10px}
+    nav{font-size:13px;column-gap:10px}
   }
 }
