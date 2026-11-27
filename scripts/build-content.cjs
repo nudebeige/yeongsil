@@ -15,6 +15,8 @@ const EX = load("d_extra.js"); D1.push(...EX[1]); D3.push(...EX[3]); D5.push(...
 const by = arr => Object.fromEntries(arr.map(p => [p.id, p]));
 const P = { ...by(D0), ...by(D1), ...by(D2), ...by(D3), ...by(D4), ...by(D5) };
 // 직접 그린 그림
+Object.assign(P["3-1"], { svgH: "선은 색마다 제자리로", svg: sv("g20"), svgNote: "<b>1 갈색</b> 전기가 오는 선 · <b>2 초록노랑</b> 안전선(접지) · <b>3 파랑</b> 돌아가는 선. 떼기 전에 찍은 사진과 같은 자리로 옮겨요." });
+Object.assign(P["1-6"], { svgH: "구멍 옆 금속 클립을 찾아봐요", svg: sv("g08") });
 Object.assign(P["1-5"], { svg2H: "오래된 집은 색이 다를 수 있어요", svg2: sv("g07b") });
 Object.assign(P["2-1"], { svgH: "세 번 대 보면 확실해요", svg: sv("g12") });
 Object.assign(P["2-2"], { svgH: "다이얼은 여기에", svg: sv("g13") });

@@ -1,0 +1,42 @@
+<svg viewBox="0 0 560 330" role="img" aria-label="콘센트를 뒤에서 본 그림. 둥근 몸통 왼쪽 나사 단자에 갈색 선, 오른쪽 나사 단자에 파란 선, 가운데 위 단자에 초록노랑 선이 하나씩 들어가 있다" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="s20-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e3e7e5"/></linearGradient>
+<linearGradient id="s20-brass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1d48a"/><stop offset=".5" stop-color="#c9a24a"/><stop offset="1" stop-color="#e8c876"/></linearGradient>
+<pattern id="s20-gy" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="16" height="16" fill="#e3c53a"/><rect width="8" height="16" fill="#2f9e55"/></pattern>
+</defs>
+<rect width="560" height="330" rx="16" fill="#eef1f0"/>
+<g font-family="Noto Sans KR, Malgun Gothic, sans-serif">
+<text x="24" y="34" font-size="13" font-weight="700" fill="#5f6764">벽에서 꺼내 뒤에서 본 모습 · 한 단자에 한 가닥, 끝까지 넣고 조여요</text>
+
+<!-- 고정 틀과 둥근 몸통 -->
+<rect x="140" y="52" width="280" height="200" rx="14" fill="#d9ddda" stroke="#b9c0bc" stroke-width="2"/>
+<circle cx="280" cy="152" r="86" fill="url(#s20-body)" stroke="#b9c0bc" stroke-width="2"/>
+<circle cx="160" cy="72" r="6" fill="#9aa39f"/><circle cx="400" cy="232" r="6" fill="#9aa39f"/>
+
+<!-- 단자 -->
+<g stroke="#8c7330" stroke-width="1.5">
+  <rect x="212" y="146" width="34" height="30" rx="5" fill="url(#s20-brass)"/>
+  <rect x="314" y="146" width="34" height="30" rx="5" fill="url(#s20-brass)"/>
+  <rect x="263" y="86" width="34" height="30" rx="5" fill="url(#s20-brass)"/>
+</g>
+<g fill="#7a6a3a"><circle cx="229" cy="161" r="7"/><circle cx="331" cy="161" r="7"/><circle cx="280" cy="101" r="7"/></g>
+<g stroke="#f4e3b0" stroke-width="2"><path d="M224 161h10"/><path d="M326 161h10"/><path d="M275 101h10"/></g>
+
+<!-- 전선 (아래 벽 속에서 올라옴) -->
+<path d="M150 320 C160 260 200 200 222 176" stroke="#7a4a2a" stroke-width="12" fill="none" stroke-linecap="round"/>
+<path d="M410 320 C400 260 360 200 338 176" stroke="#2f6fc4" stroke-width="12" fill="none" stroke-linecap="round"/>
+<path d="M280 320 C280 250 280 170 280 116" stroke="url(#s20-gy)" stroke-width="12" fill="none" stroke-linecap="round"/>
+
+<!-- 이름표 -->
+<g font-size="14" font-weight="900">
+  <circle cx="120" cy="196" r="13" fill="#1f5e4b"/><text x="120" y="201" fill="#fff" text-anchor="middle" font-size="13">1</text>
+  <text x="104" y="226" fill="#7a4a2a" text-anchor="end">갈색</text>
+  <circle cx="440" cy="196" r="13" fill="#1f5e4b"/><text x="440" y="201" fill="#fff" text-anchor="middle" font-size="13">3</text>
+  <text x="456" y="226" fill="#2f6fc4">파랑</text>
+  <circle cx="340" cy="76" r="13" fill="#1f5e4b"/><text x="340" y="81" fill="#fff" text-anchor="middle" font-size="13">2</text>
+  <text x="358" y="81" fill="#2a8a4a">초록노랑</text>
+</g>
+<path d="M133 196 L208 166" stroke="#1f5e4b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<path d="M427 196 L352 166" stroke="#1f5e4b" stroke-width="1.5" stroke-dasharray="4 3"/>
+</g>
+</svg>

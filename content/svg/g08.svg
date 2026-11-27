@@ -1,0 +1,43 @@
+<svg viewBox="0 0 560 300" role="img" aria-label="왼쪽은 둥글게 파인 홈 위아래에 반짝이는 금속 접지 클립이 있는 흰 접지 콘센트, 오른쪽은 누렇게 바랜 평평한 판에 구멍 두 개만 있는 옛날 콘센트" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="s8-plate" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#eceeed"/></linearGradient>
+<linearGradient id="s8-old" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3e6c4"/><stop offset="1" stop-color="#e2cf9f"/></linearGradient>
+<radialGradient id="s8-recess" cx=".5" cy=".4" r=".6"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d9dddb"/></radialGradient>
+<linearGradient id="s8-metal" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8d9592"/><stop offset=".5" stop-color="#e9edf0"/><stop offset="1" stop-color="#8d9592"/></linearGradient>
+</defs>
+<rect width="560" height="300" rx="16" fill="#eef1f0"/>
+<g font-family="Noto Sans KR, Malgun Gothic, sans-serif">
+
+<!-- 왼쪽: 접지 콘센트 -->
+<g transform="translate(30 40)">
+  <rect x="0" y="0" width="170" height="170" rx="18" fill="url(#s8-plate)" stroke="#c9cfcc" stroke-width="2"/>
+  <circle cx="85" cy="85" r="58" fill="url(#s8-recess)" stroke="#c2c8c5" stroke-width="2"/>
+  <circle cx="62" cy="85" r="9" fill="#2b2f2e"/>
+  <circle cx="108" cy="85" r="9" fill="#2b2f2e"/>
+  <rect x="73" y="26" width="24" height="14" rx="3" fill="url(#s8-metal)" stroke="#6f7774"/>
+  <rect x="73" y="130" width="24" height="14" rx="3" fill="url(#s8-metal)" stroke="#6f7774"/>
+</g>
+<path d="M127 73 L205 54" stroke="#1f5e4b" stroke-width="2"/>
+<path d="M127 177 L205 196" stroke="#1f5e4b" stroke-width="2"/>
+<circle cx="127" cy="73" r="4" fill="#1f5e4b"/><circle cx="127" cy="177" r="4" fill="#1f5e4b"/>
+<text x="209" y="58" font-size="13" font-weight="700" fill="#1f5e4b">금속 클립</text>
+<text x="209" y="200" font-size="13" font-weight="700" fill="#1f5e4b">= 안전선(접지)</text>
+<text x="115" y="244" font-size="17" font-weight="900" fill="#1f5e4b" text-anchor="middle">접지 콘센트</text>
+<text x="115" y="266" font-size="12.5" fill="#5f6764" text-anchor="middle">새는 전기를 땅으로 보내요</text>
+
+<!-- 오른쪽: 옛날 콘센트 -->
+<g transform="translate(375 70)">
+  <rect x="0" y="0" width="150" height="120" rx="12" fill="url(#s8-old)" stroke="#c7b27e" stroke-width="2"/>
+  <rect x="10" y="10" width="130" height="100" rx="8" fill="none" stroke="#d6c08c" stroke-width="1.5"/>
+  <circle cx="55" cy="60" r="8" fill="#3a332a"/>
+  <circle cx="95" cy="60" r="8" fill="#3a332a"/>
+  <circle cx="22" cy="22" r="4" fill="#cdb886"/><circle cx="128" cy="98" r="4" fill="#cdb886"/>
+</g>
+<path d="M450 92 L450 40" stroke="#d9604c" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="450" y="34" font-size="13" font-weight="700" fill="#d9604c" text-anchor="middle">클립 없음 · 구멍 두 개뿐</text>
+<text x="450" y="244" font-size="17" font-weight="900" fill="#d9604c" text-anchor="middle">옛날 콘센트</text>
+<text x="450" y="266" font-size="12.5" fill="#5f6764" text-anchor="middle">새는 전기가 갈 곳이 없어요</text>
+
+<line x1="335" y1="40" x2="335" y2="270" stroke="#d3d8d6" stroke-width="1.5" stroke-dasharray="5 5"/>
+</g>
+</svg>
