@@ -92,6 +92,37 @@
   .list a::after{content:"→";margin-left:auto;color:var(--red);flex:none}
   .list a:hover{color:var(--red)}
 
+  .all-link{margin:18px 0 0;font-size:14px;font-weight:700}
+  .all-link a{border-bottom:2px solid var(--ink);padding-bottom:2px}
+  .all-link a:hover{color:var(--red);border-color:var(--red)}
+
+  /* 전체 보기(/all) */
+  .allmap{padding-block:32px 8px}
+  .allmap h1{font-size:clamp(30px,7vw,48px);font-weight:900;letter-spacing:-.04em}
+  .allmap .sub{margin:8px 0 0;color:var(--muted);max-width:44em}
+  .allmap ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px}
+  .allmap li a{display:flex;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line);min-width:0}
+  .allmap li a:hover b{color:var(--red)}
+  .allmap .no{flex:none;width:2.6em;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;font-weight:700}
+  .allmap .tx{display:flex;flex-direction:column;min-width:0;flex:1}
+  .allmap .tx b{font-size:15px;font-weight:700}
+  .allmap .tx small{font-size:13px;color:var(--muted);line-height:1.45}
+  .allmap .tag-h,.allmap .tag-d{flex:none;align-self:center;font-size:11.5px;font-weight:900;border-radius:999px;padding:3px 8px;white-space:nowrap}
+  .allmap .tag-h{background:#1f5e4b;color:#fff}
+  .allmap .tag-d{background:var(--red);color:#fff}
+  .allmap .sub .tag-h{display:inline-block;vertical-align:1px}
+  .am-urgent{margin-top:24px;border:2px solid var(--red);border-radius:14px;padding:16px 18px;background:var(--red-soft)}
+  .am-urgent h2{font-size:18px;font-weight:900;color:var(--red)}
+  .am-urgent li a{border-color:color-mix(in srgb,var(--red) 25%,transparent)}
+  .am-urgent .tx b{color:var(--red)}
+  .am-119{margin:10px 0 0;font-size:13px;font-weight:700;color:var(--red)}
+  .am-part{margin-top:34px;border-top:2px solid var(--ink);padding-top:14px}
+  .am-part h2{font-size:22px;font-weight:900;letter-spacing:-.03em}
+  .am-part h2 .am-pn{color:var(--red)}
+  .am-part .d{margin:2px 0 6px;color:var(--muted);font-size:14px}
+  .allmap a.danger b{color:var(--red)}
+  @media (max-width:720px){.allmap ul{grid-template-columns:minmax(0,1fr)}}
+
   footer{border-top:1px solid var(--line);margin-top:40px;padding-block:24px 40px;color:var(--muted);font-size:13px}
   footer b{color:var(--ink)}
 
@@ -129,8 +160,14 @@
     nav{gap:14px}
     nav a.tb-part{display:none}
   }
-  @media (max-width:340px){
+  @media (max-width:430px){
+    .bar{gap:12px}
+    nav{gap:11px;font-size:13.5px}
+  }
+  @media (max-width:390px){
     .logo small{display:none}
+  }
+  @media (max-width:340px){
     nav{font-size:13px;gap:10px}
   }
 }

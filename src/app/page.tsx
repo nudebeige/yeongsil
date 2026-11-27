@@ -2,7 +2,7 @@ import Link from "next/link";
 import TopBar from "@/components/TopBar";
 import Search from "@/components/Search";
 import PartOpener from "@/components/PartOpener";
-import { home, searchIndex } from "@/lib/data";
+import { home, pages, searchIndex } from "@/lib/data";
 
 export default function Home() {
   return (
@@ -85,6 +85,7 @@ export default function Home() {
                 </details>
               ))}
             </div>
+            <p className="all-link"><Link href="/all">{pages.length}쪽 전체 목록 한 번에 보기 →</Link></p>
           </div>
         </section>
       </main>

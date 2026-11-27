@@ -12,6 +12,7 @@ export default function TopBar() {
           <Link className="tb-hot" href="/#urgent">지금 위험해요</Link>
           <Link href="/#symptom">증상 찾기</Link>
           <Link href="/#p0">처음이에요</Link>
+          <Link href="/all">전체 보기</Link>
           <Link className="tb-part" href="/#p1">우리 집 전기</Link>
           <Link className="tb-part" href="/#p2">공구</Link>
           <Link className="tb-part" href="/#p3">공사할 때</Link>

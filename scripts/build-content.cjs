@@ -54,7 +54,8 @@ for (const [n, name, arts] of PARTS) for (const a of arts) {
   if (!id) throw new Error("id 없는 글: " + a.slice(0, 80));
   let html = a.replace(/src="data:image\/[^"]+"/g, 'src=""')
     .replace(/href="#p([0-9]+-[0-9]+)"/g, 'href="/$1"');
-  pages.push({ id, part: n, partName: name, title: titleOf(a), html });
+  const sub = ((a.match(/<header class="title">[\s\S]*?<p>([\s\S]*?)<\/p>/) || [])[1] || "").replace(/<[^>]+>/g, "").trim();
+  pages.push({ id, part: n, partName: name, title: titleOf(a), sub, hands: /class="hands"/.test(a), html });
 }
 // 글 속 "1-3쪽" 같은 쪽 표시를 링크로 (태그 속성·기존 링크 안·자기 쪽은 건너뜀)
 const allIds = new Set(pages.map(p => p.id));
