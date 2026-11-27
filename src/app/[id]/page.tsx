@@ -25,8 +25,9 @@ export default async function NotePage({ params }: { params: Promise<{ id: strin
   const i = pages.indexOf(p);
   const prev = pages[i - 1], next = pages[i + 1];
   return (
+    <>
+    <TopBar />
     <div className="np">
-      <TopBar />
       <div className="wrap">
         <div className="eyebrow">
           <Link href={`/#p${p.part}`} style={{ fontWeight: 700 }}>← 제{p.part}부 {p.partName}</Link>
@@ -39,5 +40,6 @@ export default async function NotePage({ params }: { params: Promise<{ id: strin
       </div>
       <NoteScripts id={p.id} />
     </div>
+    </>
   );
 }

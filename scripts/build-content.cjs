@@ -26,7 +26,7 @@ Object.assign(P["5-8"], { svgH: "관리실이 우리 집을 바로 아는 이유
 Object.assign(P["5-9"], { svgH: "이 순서로, 세 가지만", svg: sv("g59") });
 Object.assign(P["3-10"], { rawH: "좋은 견적서는 이렇게 생겼어요 (내역서형)", raw: r("quote.html"), svgH: "견적서 받으면 이것만", svg: sv("g310") });
 P["3-10"].water = "같은 공사인데 견적이 두 배씩 차이 나는 건 견적 방식이 달라서인 경우가 많아요. '총 얼마'로 뭉친 견적(일식)보다, 자재와 인건비를 줄마다 나눈 견적(내역서형)이 비교하기도 따지기도 쉬워요.";
-for (const f of ["patch.js", "patch2.js", "patch3.js", "patch4.js", "patch5.js", "patch6.js", "patch7.js", "patch8.js", "patch9.js", "patch10.js", "patch11.js", "patch12.js", "patch13.js"]) load(f)(P);
+for (const f of ["patch.js", "patch2.js", "patch3.js", "patch4.js", "patch5.js", "patch6.js", "patch7.js", "patch8.js", "patch9.js", "patch10.js", "patch11.js", "patch12.js", "patch13.js", "patch14.js"]) load(f)(P);
 
 // ── 글(article) 나누기
 const splitArticles = html => (html.match(/<article[\s\S]*?<\/article>/g) || []);
