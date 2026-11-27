@@ -35,6 +35,31 @@
 - G38(5-6 단자함)은 뺌: 5-11 장비 사진 6장으로 대신하고 5-6에서 링크.
 - Qwen이 막히면 같은 계정 Z-Image-Turbo도 한도를 같이 씀(11-21 둘 다 거절 확인).
 
+## 다시 만들기 v3 (2026-11-27 사용자 검토, 한도 풀리면 이 순서로)
+> **11-27 한도 없이 바로 고침**: 1번 G04는 중국식 콘센트를 위아래 벽 색으로 이어 칠해 지움(번호 ①을 남은 콘센트 위로 옮김) → 다시 만들 필요 없음. 10번 G14는 사진 가장자리 색을 늘린 배경으로 다시 합침 → 끝. **남은 것: A 3장(2·3·4번) + B 5장(5~9번).**
+30장을 "실제로 파는 제품·실제 설치 모습과 같은가"로 다시 봄. 판정 규칙 추가: ① 뜬 물건 없나 ② 실제 제품 모양인가 ③ 실제 설치 방식인가(선이 조리대를 가로지르는 등 위험한 모습 금지).
+모든 프롬프트 끝에 꼬리말 T, **[콘센트]** 는 v2와 같은 문장.
+
+### A. 다시 만드는 게 좋은 4장 (먼저)
+| 순서 | 그림 | 쪽 | 문제 | 새 프롬프트 (끝에 T) | 비율 | 넣는 법 |
+|---|---|---|---|---|---|---|
+| 1 | G04 왼쪽 | 1-2 | 220V 쪽 콘센트 하나가 중국식 구멍 | `A Korean apartment kitchen counter corner. Exactly one [콘센트] mounted flat on the white tiled wall above the counter, and exactly one white electric rice cooker on the counter with its plug pushed fully into the socket, the plug face flush against the socket. Tidy counter.` | 3:4 | 새 그림을 왼쪽에, 기존 g04 오른쪽(380V 모터) 절반을 붙여 한 장으로 합침(sharp). 기존 번호 위치 다시 확인 |
+| 2 | G27 | 3-8 | 선이 조리대 위를 가로질러 벽 콘센트에, 옆에 가스레인지 | `A modern Korean kitchen with exactly one black induction cooktop built flush into a white counter. Directly below it the lower cabinet door is open. On the back wall inside that cabinet, exactly one [콘센트] is mounted flat, with exactly one thick grey plug pushed fully into it, its face flush against the socket, and the grey cord rising straight up to the underside of the cooktop. Only the induction cooktop on the counter.` | 4:3 | patch10의 3-8 번호 위치 고침 |
+| 3 | G45 | 3-12 | 패널이 손바닥만 함 | `Outside view of a Korean apartment balcony under blue sky. Exactly one full-size rectangular solar panel, about as long as a person is tall, hangs on the outside of the metal balcony railing, held by sturdy metal hooks and brackets and tilted slightly upward. A small white microinverter box is fixed on the back of the panel, and one black cable runs neatly along the rail into the balcony.` | 4:3 | patch12의 3-12 번호(브래킷·선·인버터) 위치 고침 |
+| 4 | G15 | 2-4 | 라디오처럼 생김 | `On a plain grey workbench lies exactly one handheld digital insulation resistance tester: a rugged yellow and dark grey instrument shaped like a large thick multimeter, with a blank dark screen at the top, one big rotary switch in the middle, one large round push button beside the switch, and three round test lead jacks along its top edge. A red lead and a black lead are plugged into the jacks, each ending in a big metal alligator clip.` | 4:3 | patch12의 2-4 번호·화면 숫자 위치 고침 |
+
+### B. 써도 되지만 아쉬운 6장 (A가 끝나면)
+| 순서 | 그림 | 쪽 | 문제 | 새 프롬프트 (끝에 T) / 방법 | 비율 | 넣는 법 |
+|---|---|---|---|---|---|---|
+| 5 | panel | 1-3·5-1 | 전선이 빨강·검정·파랑(1-5쪽 갈색·파랑·초록노랑과 다름) | `Inside an open white home electrical distribution panel, front view. On a metal DIN rail: exactly one wide white residual current breaker with a small round blue test button on the left, and exactly four narrow white circuit breakers to its right, all levers up. Brown wires enter the top terminals, blue wires the bottom terminals, and green-and-yellow striped wires run to a brass grounding bar along the bottom.` | 3:2 | 손으로 만든 쪽 두 곳(content/p1-23.body.html 1-3, content/elb-trip.src.html 5-1)의 핀·링·번호 위치(%)를 새 그림에 맞게 다시 잼. 차단기 개수(큰 것 1 + 작은 것 4)는 그대로 맞춰야 함 |
+| 6 | G13-2 | 2-2 | 선반 위 감긴 선이 테스터와 이어졌는지 애매 | `A plain white wall with exactly one [콘센트] mounted flat at eye level. On a small white shelf below it stands exactly one yellow digital multimeter with a blank screen. A red lead and a black lead come out of the jacks at its bottom and lie neatly coiled together on the shelf right beside it, their two probe tips side by side at the front of the shelf.` | 4:3 | patch14의 링(두 구멍)·말풍선은 콘센트 위치가 바뀌면 다시 잼 |
+| 7 | G24 | 3-5 | 필름 끝이 둥글게 말림 | `Top-down view of a room floor during renovation. Wide flat thin black carbon heating film sheets with thin copper strips along both long edges lie perfectly flat side by side on silver foil insulation boards. At one short end of each sheet, small metal clamp connectors are crimped onto the copper strips, with short black cables gathering into exactly one small grey junction box by the wall.` | 16:9 | patch13의 3-5 번호 위치 고침 |
+| 8 | G39 | 5-7 | 벽지만 그을리고 콘센트는 멀쩡 | `Close-up of [콘센트] mounted flat on light beige wallpaper. Dark brown scorch marks surround both round holes on the white socket face, and the plastic around the holes is slightly melted and yellowed. A faint grey smoke stain fans upward on the wallpaper just above the socket.` | 4:3 | patch10의 5-7 번호(그을음·연기) 위치 고침 |
+| 9 | G40 | 5-8 | 감지기가 후드 옆 상부장 밑에 붙음 | `A modern white Korean kitchen. Exactly one round white smoke detector is mounted on the flat white ceiling, a little away from the cooker hood. Below on the stove, exactly one frying pan sends a thin wisp of white cooking steam rising up toward the ceiling.` | 4:3 | patch10의 5-8 번호 위치 고침 |
+| 10 | G14 | 2-3 | 잘라 채운 양옆 여백 색이 다름 | **AI 안 씀.** 원본 그림을 흐리게 늘린 배경 위에 잘라 낸 클램프미터를 얹어 다시 합침(sharp blur) | — | 한도 없이 바로 가능 |
+
+예상: 하루 약 8번 × 성공률 60% → A 4장 + B 5장(AI)은 1~2일. 10번(G14)은 아무 때나.
+
 ## 고친 프롬프트 v2 (2026-11-21) — 이것부터 쓴다
 아래 날짜별 항목의 프롬프트는 옛 버전(참고용). 만들 때는 이 표의 순서와 문장을 쓴다.
 
